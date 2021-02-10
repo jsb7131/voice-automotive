@@ -1,15 +1,18 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import { uniqueId } from 'lodash';
 
 type Vehicle = {id: string, make: string, model: string};
 type AddVehicle = {make: string, model: string};
 type AddFunc<T> = (item: T) => void;
 type RemoveFunc = (id: string) => void;
+type VoidFunc = () => void;
 
 type Context = {
     current: Vehicle[],
     add: AddFunc<AddVehicle>,
-    remove: RemoveFunc
+    remove: RemoveFunc,
+    clear: VoidFunc,
+    reset: VoidFunc
 };
 
 const automobiles: Vehicle[] = [
@@ -24,7 +27,9 @@ const automobiles: Vehicle[] = [
 const VehiclesContext = React.createContext<Context>({
     current: [],
     add: () => {},
-    remove: () => {}
+    remove: () => {},
+    clear: () => {},
+    reset: () => {}
 });
 
 export const useVehicles = () => {
@@ -35,27 +40,46 @@ const VehiclesProvider: React.FC = ({ children }) => {
     
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
 
+    const memoVehicles = useRef("");
+
+    const setVehiclesWithMemo = (vehiclesArray: Vehicle[]) => {
+        setVehicles(vehiclesArray);
+        memoVehicles.current = JSON.stringify(vehiclesArray);
+    };
+
     useEffect(() => {
         setTimeout(() => {
-            setVehicles(automobiles);
+            setVehiclesWithMemo(automobiles);
         }, 1200);
     }, []);
 
+    const fetchSeedVehicles = () => {
+        if (JSON.stringify(automobiles) !== memoVehicles.current) {
+            setVehiclesWithMemo(automobiles);
+        };
+    };
+
     const addVehicle = (vehicle: AddVehicle) => {
-        setVehicles([
+        setVehiclesWithMemo([
             {id: uniqueId(), ...vehicle},
             ...vehicles
         ]);
     };
 
     const removeVehicle = (id: string) => {
-        setVehicles(vehicles.filter(vehicle => { return vehicle.id !== id }));
+        setVehiclesWithMemo(vehicles.filter(vehicle => { return vehicle.id !== id }));
+    };
+
+    const clearVehicles = () => {
+        setVehiclesWithMemo([]);
     };
 
     const vehicleControl = {
         current: vehicles,
         add: addVehicle,
-        remove: removeVehicle
+        remove: removeVehicle,
+        clear: clearVehicles,
+        reset: fetchSeedVehicles
     };
     
     return (
