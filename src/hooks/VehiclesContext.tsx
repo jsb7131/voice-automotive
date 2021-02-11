@@ -15,6 +15,7 @@ type Context = {
     reset: VoidFunc
 };
 
+// Seeded vehicles
 const automobiles: Vehicle[] = [
     {id: uniqueId(), make: "Tesla", model: "Model S"},
     {id: uniqueId(), make: "Tesla", model: "Model 3"},
@@ -42,23 +43,30 @@ const VehiclesProvider: React.FC = ({ children }) => {
 
     const memoVehicles = useRef("");
 
+    // Hold the vehicles array state as a string in a ref for memoization
     const setVehiclesWithMemo = (vehiclesArray: Vehicle[]) => {
         setVehicles(vehiclesArray);
         memoVehicles.current = JSON.stringify(vehiclesArray);
     };
 
+    // Emulating initial fetch of vehicles / data on mount
     useEffect(() => {
         setTimeout(() => {
             setVehiclesWithMemo(automobiles);
         }, 1200);
     }, []);
 
+    // Emulate an API fetch of current data (it could be the same exact
+    // data that is already currently held in the vehicles array state)
+    // If string of results is the same exact data as the current state,
+    // do not set new state / do not cause any unnecessary rendering
     const fetchSeedVehicles = () => {
         if (JSON.stringify(automobiles) !== memoVehicles.current) {
             setVehiclesWithMemo(automobiles);
         };
     };
 
+    // Add vehicle to vehicles array state
     const addVehicle = (vehicle: AddVehicle) => {
         setVehiclesWithMemo([
             {id: uniqueId(), ...vehicle},
@@ -66,10 +74,12 @@ const VehiclesProvider: React.FC = ({ children }) => {
         ]);
     };
 
+    // Remove vehicle from vehicles array state
     const removeVehicle = (id: string) => {
         setVehiclesWithMemo(vehicles.filter(vehicle => { return vehicle.id !== id }));
     };
 
+    // Remove all vehicles
     const clearVehicles = () => {
         setVehiclesWithMemo([]);
     };
