@@ -12,7 +12,7 @@ export default function App() {
     <div className="App">
         <header className="App-header">
           <Panel isCollapsed={panel.collapsed} />
-          <button onClick={() => panel.collapse(panel.collapsed)}>Toggle Panel</button>
+          <button onClick={() => panel.collapse(panel.collapsed)}>{panel.collapsed ? "Open Panel" : "Close Panel"}</button>
           <img src={logo} className="App-logo" alt="logo" />
           <VehiclesProvider>
             <VehiclesView/>
