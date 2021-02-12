@@ -8,7 +8,7 @@ const VehiclesView: React.FC = () => {
     return (
         <>
             <button onClick={() => vehicles.add({make: "Alta", model: "Redshift"})}>Add Redshift</button>
-            {vehicles.current.map(vehicle => { return <div key={vehicle.id} onClick={() => vehicles.remove(vehicle.id)}>{vehicle.make + " " + vehicle.model}</div> })}
+            {vehicles.current.map(vehicle => <div key={vehicle.id} onClick={() => vehicles.remove(vehicle.id)}>{vehicle.make + " " + vehicle.model}</div>)}
             <button onClick={vehicles.clear}>Clear</button>
             <button onClick={vehicles.reset}>Reset</button>
         </>
