@@ -14,7 +14,7 @@ const LayoutProvider: React.FC = ({ children }) => {
 
     const [collapsed, setCollapsed] = useState(false);
 
-    const collapse = (value: boolean) => { setCollapsed(!value); };
+    const collapse = (value: boolean) => setCollapsed(!value);
 
     const LayoutControl = {
         collapsed: collapsed,

@@ -33,9 +33,7 @@ const VehiclesContext = React.createContext<Context>({
     reset: () => {}
 });
 
-export const useVehicles = () => {
-    return useContext(VehiclesContext);
-};
+export const useVehicles = () => useContext(VehiclesContext);
 
 const VehiclesProvider: React.FC = ({ children }) => {
     
@@ -75,14 +73,10 @@ const VehiclesProvider: React.FC = ({ children }) => {
     };
 
     // Remove vehicle from vehicles array state
-    const removeVehicle = (id: string) => {
-        setVehiclesWithMemo(vehicles.filter(vehicle => { return vehicle.id !== id }));
-    };
+    const removeVehicle = (id: string) => setVehiclesWithMemo(vehicles.filter(vehicle => vehicle.id !== id ));
 
     // Remove all vehicles
-    const clearVehicles = () => {
-        setVehiclesWithMemo([]);
-    };
+    const clearVehicles = () => setVehiclesWithMemo([]);
 
     const vehicleControl = {
         current: vehicles,
