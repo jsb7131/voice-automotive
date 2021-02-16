@@ -5,12 +5,11 @@ type HoverControl = {
     update: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-type HoverProps = {
-    kind: boolean,
+type Props = {
     children: (hovered: HoverControl) => React.ReactNode
 };
 
-export const Hover: React.FC<PropsWithChildren<HoverProps>> = ({kind, children}) => {
+export const Hover: React.FC<PropsWithChildren<Props>> = ({children}) => {
     const [hovered, setHovered] = useState(false);
     const hoverControl = {
         current: hovered,
