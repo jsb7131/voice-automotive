@@ -10,11 +10,16 @@ type Props = {
 };
 
 export const Hover: React.FC<PropsWithChildren<Props>> = ({children}) => {
+
     const [hovered, setHovered] = useState(false);
+
     const hoverControl = {
         current: hovered,
         update: setHovered
     };
+
+    // Return a children render function so that the state of this component
+    // can be accessed by its children / passed in as props
     return (
         <>
             {children(hoverControl)}

@@ -12,6 +12,7 @@ const VehiclesView: React.FC = () => {
             {vehicles.current.map(vehicle => 
                 <Hover key={vehicle.id}>
                     {hovered =>
+                        // Wrap elements that need access to a hover state in a Hover component / its children render function
                         <div 
                             style={{cursor: "pointer", background: hovered.current ? "blue" : "inherit"}} 
                             onMouseEnter={() => hovered.update(true)} 
