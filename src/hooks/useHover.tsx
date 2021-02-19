@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 export const useHover = () => {
     const [hovered, setHovered] = useState(false);
-    const targetRef = useRef(null);
+    const targetRef = useRef<HTMLDivElement>(null);
 
     const onMouseEnter = () => {
         setHovered(true);
@@ -13,13 +13,13 @@ export const useHover = () => {
     };
 
     useEffect(() => {
-        if (!targetRef.current) return;
-        targetRef.current.addEventListener('onMouseEnter', onMouseEnter);
-        targetRef.current.addEventListener('onMouseLeave', onMouseLeave);
+        let curRef = targetRef.current;
+        curRef?.addEventListener('onMouseEnter', onMouseEnter);
+        curRef?.addEventListener('onMouseLeave', onMouseLeave);
 
         return () => {
-            targetRef.current.removeEventListener('onMouseEnter', onMouseEnter);
-            targetRef.current.removeEventListener('onMouseLeave', onMouseLeave);
+            curRef?.removeEventListener('onMouseEnter', onMouseEnter);
+            curRef?.removeEventListener('onMouseLeave', onMouseLeave);
         };
     }, [targetRef]);
 
