@@ -13,7 +13,7 @@ const VehiclesView: React.FC = () => {
                 <HoverableDiv
                     key={vehicle.id}
                     click={() => vehicles.remove(vehicle.id)}
-                    innerHTML={vehicle.make + " " + vehicle.model}
+                    innerText={vehicle.make + " " + vehicle.model}
                 >
                 </HoverableDiv>
             )}

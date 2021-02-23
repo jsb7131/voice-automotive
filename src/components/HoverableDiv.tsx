@@ -3,10 +3,10 @@ import { useHover } from '../hooks/useHover';
 
 type Props = {
     click: () => void,
-    innerHTML: string
+    innerText: string
 };
 
-export const HoverableDiv: React.FC<Props> = ({ click, innerHTML }) => {
+export const HoverableDiv: React.FC<Props> = ({ click, innerText }) => {
 
     const hover = useHover();
 
@@ -16,7 +16,7 @@ export const HoverableDiv: React.FC<Props> = ({ click, innerHTML }) => {
             style={{cursor: "pointer", background: hover.hovered ? "blue" : "inherit"}}
             onClick={click}
         >
-            {innerHTML}
+            {innerText}
         </div>
     );
 };
