@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import logo from './logo.svg';
 import { useLayout } from './hooks/LayoutContext';
-import VehiclesProvider from './hooks/VehiclesContext';
-import Panel from './components/Panel';
-import VehiclesView from './components/VehiclesView';
+import { VehiclesProvider } from './hooks/VehiclesContext';
+import { Panel } from './components/Panel';
+import { VehiclesView } from './components/VehiclesView';
 
 export default function App() {
   const panel = useLayout();

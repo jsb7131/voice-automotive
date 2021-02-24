@@ -14,7 +14,7 @@ const Container = styled.div<PanelProps>`
     background: black;
 `;
 
-const Panel: React.FC<PanelProps> = props => {
+export const Panel: React.FC<PanelProps> = props => {
 
     return (
         <Container isCollapsed={props.isCollapsed}>
@@ -22,6 +22,4 @@ const Panel: React.FC<PanelProps> = props => {
         </Container>
     );
 };
-
-export default Panel;
 

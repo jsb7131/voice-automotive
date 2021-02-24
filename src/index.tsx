@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import LayoutProvider from './hooks/LayoutContext';
+import { LayoutProvider } from './hooks/LayoutContext';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

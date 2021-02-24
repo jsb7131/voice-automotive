@@ -2,7 +2,7 @@ import React from 'react';
 import { useVehicles } from '../hooks/VehiclesContext';
 import { HoverableDiv } from './HoverableDiv';
 
-const VehiclesView: React.FC = () => {
+export const VehiclesView: React.FC = () => {
 
     const vehicles = useVehicles();
 
@@ -22,5 +22,3 @@ const VehiclesView: React.FC = () => {
         </>
     );
 };
-
-export default VehiclesView;

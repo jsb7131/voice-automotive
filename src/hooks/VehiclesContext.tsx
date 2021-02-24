@@ -35,7 +35,7 @@ const VehiclesContext = React.createContext<Context>({
 
 export const useVehicles = () => useContext(VehiclesContext);
 
-const VehiclesProvider: React.FC = ({ children }) => {
+export const VehiclesProvider: React.FC = ({ children }) => {
     
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
 
@@ -92,5 +92,3 @@ const VehiclesProvider: React.FC = ({ children }) => {
         </VehiclesContext.Provider>
     );
 };
-
-export default VehiclesProvider;

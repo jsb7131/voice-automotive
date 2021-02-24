@@ -10,7 +10,9 @@ const LayoutContext = React.createContext<Layout>({
     collapse: () => {}
 });
 
-const LayoutProvider: React.FC = ({ children }) => {
+export const useLayout = () => useContext(LayoutContext);
+
+export const LayoutProvider: React.FC = ({ children }) => {
 
     const [collapsed, setCollapsed] = useState(false);
 
@@ -27,7 +29,3 @@ const LayoutProvider: React.FC = ({ children }) => {
         </LayoutContext.Provider>
     );
 };
-
-export default LayoutProvider;
-
-export const useLayout = () => useContext(LayoutContext);
