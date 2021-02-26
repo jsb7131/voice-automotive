@@ -12,6 +12,9 @@ const Container = styled.div<PanelProps>`
     height: 100%;
     width: ${p => p.isCollapsed ? 100 : 500}px;
     background: black;
+    &:hover {
+        background: blue;
+    }
 `;
 
 export const Panel: React.FC<PanelProps> = props => {
