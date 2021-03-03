@@ -14,10 +14,4 @@ const Container = styled.div`
     }
 `;
 
-export const VehicleBlock: React.FC = () => {
-    return (
-        <>
-            <Container></Container>
-        </>
-    );
-};
+export const VehicleBlock: React.FC = () => <Container></Container>;
