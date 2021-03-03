@@ -13,7 +13,7 @@ const Container = styled.div<PanelProps>`
     width: ${p => p.isCollapsed ? 150 : 500}px;
     background: black;
     &:hover {
-        background: blue;
+        background: darkblue;
     }
 `;
 

@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
+type VBProps = {
+    BGColor: string;
+}
+
+const Container = styled.div<VBProps>`
     width: 100px;
     height: 100px;
-    background: white;
+    background: ${p => p.BGColor};
     border-radius: 2px;
     margin-top: 20px;
     margin-left: auto;
@@ -14,4 +18,4 @@ const Container = styled.div`
     }
 `;
 
-export const VehicleBlock: React.FC = () => <Container></Container>;
+export const VehicleBlock: React.FC<VBProps> = ({ BGColor }) => <Container BGColor={BGColor}/>;
