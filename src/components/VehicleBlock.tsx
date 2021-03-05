@@ -4,12 +4,13 @@ import styled from 'styled-components';
 type VBProps = {
     BGColor: string;
     HoverColor: string;
-    width: string;
-}
+    width: number;
+    height: number;
+};
 
 const Container = styled.div<VBProps>`
     width: ${p => p.width}px;
-    height: 100px;
+    height: ${p => p.height}px;
     background: ${p => p.BGColor};
     border-radius: 2px;
     margin-top: 20px;
@@ -20,9 +21,10 @@ const Container = styled.div<VBProps>`
     }
 `;
 
-export const VehicleBlock: React.FC<VBProps> = ({ width, BGColor, HoverColor }) =>
+export const VehicleBlock: React.FC<VBProps> = ({ width, height, BGColor, HoverColor }) =>
     <Container
         width={width}
+        height={height}
         BGColor={BGColor}
         HoverColor={HoverColor}
     />

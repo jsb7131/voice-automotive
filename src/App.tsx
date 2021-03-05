@@ -13,9 +13,9 @@ export default function App() {
     <div className="App">
         <header className="App-header">
           <Panel isCollapsed={panel.collapsed}>
-            <VehicleBlock width={"120"} BGColor={"red"} HoverColor={"green"} />
-            <VehicleBlock width={"100"} BGColor={"white"} HoverColor={"green"} />
-            <VehicleBlock width={"120"} BGColor={"blue"} HoverColor={"green"} />
+            <VehicleBlock width={120} height={100} BGColor={"red"} HoverColor={"green"} />
+            <VehicleBlock width={100} height={100} BGColor={"white"} HoverColor={"green"} />
+            <VehicleBlock width={120} height={100} BGColor={"blue"} HoverColor={"green"} />
           </Panel>
           <button onClick={() => panel.collapse(panel.collapsed)}>{panel.collapsed ? "Open Panel" : "Close Panel"}</button>
           <img src={logo} className="App-logo" alt="logo" />
