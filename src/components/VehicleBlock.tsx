@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 type VBProps = {
     BGColor: string;
+    HoverColor: string;
 }
 
 const Container = styled.div<VBProps>`
@@ -14,8 +15,13 @@ const Container = styled.div<VBProps>`
     margin-left: auto;
     margin-right: auto;
     &:hover {
-        background: green;
+        background: ${p => p.HoverColor};
     }
 `;
 
-export const VehicleBlock: React.FC<VBProps> = ({ BGColor }) => <Container BGColor={BGColor}/>;
+export const VehicleBlock: React.FC<VBProps> = ({ BGColor, HoverColor }) =>
+    <Container
+        BGColor={BGColor}
+        HoverColor={HoverColor}
+    />
+;
