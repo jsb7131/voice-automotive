@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDealer } from '../hooks/DealerContext';
+import { useDealer } from '../hooks/useDealer';
 
 type VBProps = {
     BGColor: string;
@@ -22,7 +22,7 @@ const Container = styled.div<VBProps>`
     };
 `;
 
-export const VehicleBlocks: React.FC<VBProps> = ({ width, height, BGColor, HoverColor }) => {
+export const PanelBlocks: React.FC<VBProps> = ({ width, height, BGColor, HoverColor }) => {
     const dealer = useDealer();
     return (
         <>
