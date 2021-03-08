@@ -14,7 +14,8 @@ const Container = styled.div<PanelProps>`
     background: black;
     &:hover {
         background: darkblue;
-    }
+    };
+    overflow: auto;
 `;
 
 export const Panel: React.FC<PanelProps> = props => {
