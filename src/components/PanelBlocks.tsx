@@ -1,38 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useDealer } from '../hooks/useDealer';
+import { VehicleBlock } from './VehicleBlock';
 
-type VBProps = {
-    BGColor: string;
-    HoverColor: string;
-    width: number;
-    height: number;
-};
-
-const Container = styled.div<VBProps>`
-    width: ${p => p.width}px;
-    height: ${p => p.height}px;
-    background: ${p => p.BGColor};
-    border-radius: 2px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    &:hover {
-        background: ${p => p.HoverColor};
-    };
-`;
-
-export const PanelBlocks: React.FC<VBProps> = ({ width, height, BGColor, HoverColor }) => {
+export const PanelBlocks: React.FC = () => {
     const dealer = useDealer();
     return (
         <>
             {dealer.current.map(vehicle => 
-                <Container
+                <VehicleBlock
                     key={vehicle.id}
-                    width={width}
-                    height={height}
-                    BGColor={BGColor}
-                    HoverColor={HoverColor}
+                    width={100}
+                    height={100}
+                    BGColor={"white"}
+                    HoverColor={"green"}
                 />
             )}
         </>
