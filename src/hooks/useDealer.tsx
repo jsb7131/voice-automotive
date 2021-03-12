@@ -24,7 +24,5 @@ export const useDealer = () => {
         }, 1200);
     }, []);
     
-    return {
-        current: vehicles
-    };
+    return vehicles;
 };

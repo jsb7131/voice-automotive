@@ -17,7 +17,7 @@ export default function App() {
     <div className="App">
         <header className="App-header">
           <Panel isCollapsed={panel.collapsed}>
-            {dealer.current.map(vehicle => 
+            {dealer.map(vehicle => 
               <VehicleBlock
                 key={vehicle.id}
                 width={100}
