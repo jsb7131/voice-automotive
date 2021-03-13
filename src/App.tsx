@@ -12,18 +12,20 @@ export default function App() {
 
   const panel = useLayout();
   const dealer = useDealer();
+  const pxSquare = panel.collapsed ? 100 : 150;
 
   return (
     <div className="App">
         <header className="App-header">
           <Panel isCollapsed={panel.collapsed}>
-            {dealer.map(vehicle => 
+            {dealer.map((vehicle, i) => 
               <VehicleBlock
                 key={vehicle.id}
-                width={100}
-                height={100}
+                width={pxSquare}
+                height={pxSquare}
                 BGColor={"white"}
                 HoverColor={"green"}
+                last={i === dealer.length - 1 ? true : false}
               />
             )}
           </Panel>
