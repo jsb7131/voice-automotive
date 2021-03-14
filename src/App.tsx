@@ -13,11 +13,14 @@ export default function App() {
   const panel = useLayout();
   const dealer = useDealer();
   const pxSquare = panel.collapsed ? 100 : 150;
+  // const panelButtonText = panel.collapsed ? "Open Panel" : "Close Panel";
 
   return (
     <div className="App">
         <header className="App-header">
-          <Panel isCollapsed={panel.collapsed}>
+          <Panel updateLayout={panel.collapse}>
+            {/* <button>{panelButtonText}</button> */}
+            {!panel.collapsed && <h2>Dealership</h2>}
             {dealer.map((vehicle, i) => 
               <VehicleBlock
                 key={vehicle.id}
@@ -29,7 +32,7 @@ export default function App() {
               />
             )}
           </Panel>
-          <button onClick={() => panel.collapse(panel.collapsed)}>{panel.collapsed ? "Open Panel" : "Close Panel"}</button>
+          {/* <button onClick={() => panel.collapse(panel.collapsed)}>{panelButtonText}</button> */}
           <img src={logo} className="App-logo" alt="logo" />
           <VehiclesProvider>
             <VehiclesView/>

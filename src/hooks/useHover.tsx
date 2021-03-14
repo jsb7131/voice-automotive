@@ -4,21 +4,21 @@ export const useHover = () => {
     const [hovered, setHovered] = useState(false);
     const targetRef = useRef<HTMLDivElement>(null);
 
-    const onMouseOver = () => setHovered(true);
-    const onMouseOut = () => setHovered(false);
+    const onMouseEnter = () => setHovered(true);
+    const onMouseLeave = () => setHovered(false);
 
     useEffect(() => {
         const node = targetRef.current;
         if (node) {
-            node.addEventListener('mouseover', onMouseOver);
-            node.addEventListener('mouseout', onMouseOut);
+            node.addEventListener('mouseenter', onMouseEnter);
+            node.addEventListener('mouseleave', onMouseLeave);
 
             return () => {
-                node.removeEventListener('mouseover', onMouseOver);
-                node.removeEventListener('mouseout', onMouseOut);
+                node.removeEventListener('mouseenter', onMouseEnter);
+                node.removeEventListener('mouseleave', onMouseLeave);
             };
         };
-    }, []);
+    });
 
     return {
         hovered,
