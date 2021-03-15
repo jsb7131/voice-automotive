@@ -18,7 +18,7 @@ export default function App() {
   return (
     <div className="App">
         <header className="App-header">
-          <Panel updateLayout={panel.collapse}>
+          <Panel layoutCollapsed={panel.collapsed} updateLayout={panel.collapse}>
             {/* <button>{panelButtonText}</button> */}
             {!panel.collapsed && <h2>Dealership</h2>}
             {dealer.map((vehicle, i) => 
