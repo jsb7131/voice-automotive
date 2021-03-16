@@ -13,7 +13,8 @@ export const HoverableDiv: React.FC<Props> = ({ click, innerText }) => {
     return (
         <div 
             ref={hover.targetRef}
-            style={{cursor: "pointer", background: hover.hovered ? "blue" : "inherit"}}
+            className="list-item"
+            style={{background: hover.hovered ? "blue" : "inherit"}}
             onClick={click}
         >
             {innerText}

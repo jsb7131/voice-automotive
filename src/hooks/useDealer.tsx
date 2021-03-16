@@ -5,6 +5,7 @@ type Vehicle = {id: string, make: string, model: string};
 
 // Seeded vehicles
 const automobiles: Vehicle[] = [
+    {id: uniqueId(), make: "Alta", model: "Redshift"},
     {id: uniqueId(), make: "Tesla", model: "Model S"},
     {id: uniqueId(), make: "Tesla", model: "Model 3"},
     {id: uniqueId(), make: "Tesla", model: "Model X"},

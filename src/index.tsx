@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { LayoutProvider } from './hooks/LayoutContext';
+import { VehiclesProvider } from './hooks/VehiclesContext';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <LayoutProvider>
-      <App />
+      <VehiclesProvider>
+        <App />
+      </VehiclesProvider>
     </LayoutProvider>
   </React.StrictMode>,
   document.getElementById('root')

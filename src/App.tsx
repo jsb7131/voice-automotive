@@ -5,7 +5,6 @@ import { useLayout } from './hooks/LayoutContext';
 import { useDealer } from './hooks/useDealer';
 import { Panel } from './components/Panel';
 import { VehicleBlock } from './components/VehicleBlock';
-import { VehiclesProvider } from './hooks/VehiclesContext';
 import { VehiclesView } from './components/VehiclesView';
 
 export default function App() {
@@ -29,14 +28,14 @@ export default function App() {
                 BGColor={"white"}
                 HoverColor={"green"}
                 last={i === dealer.length - 1 ? true : false}
+                dealerMake={vehicle.make}
+                dealerModel={vehicle.model}
               />
             )}
           </Panel>
           {/* <button onClick={() => panel.collapse(panel.collapsed)}>{panelButtonText}</button> */}
           <img src={logo} className="App-logo" alt="logo" />
-          <VehiclesProvider>
-            <VehiclesView/>
-          </VehiclesProvider>
+          <VehiclesView/>
         </header>
     </div>
   );
