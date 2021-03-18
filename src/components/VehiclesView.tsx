@@ -1,6 +1,6 @@
 import React from 'react';
 import { useVehicles } from '../hooks/VehiclesContext';
-import { HoverableDiv } from './HoverableDiv';
+import { VehicleBlock } from './VehicleBlock';
 
 export const VehiclesView: React.FC = () => {
 
@@ -9,14 +9,23 @@ export const VehiclesView: React.FC = () => {
     return (
         <>
             <button onClick={() => vehicles.add({make: "Alta", model: "Redshift"})}>Add Alta Redshift</button>
-            {vehicles.current.map(vehicle => 
-                <HoverableDiv
-                    key={vehicle.id}
-                    click={() => vehicles.remove(vehicle.id)}
-                    innerText={vehicle.make + " " + vehicle.model}
-                >
-                </HoverableDiv>
-            )}
+            <div className="garage-item">
+                {vehicles.current.map(vehicle => 
+                    <VehicleBlock
+                        key={vehicle.id}
+                        inline={true}
+                        width={200}
+                        height={100}
+                        bgColor={"peru"}
+                        horiCenter={false}
+                        hoverColor={"darkblue"}
+                        last={false}
+                        click={() => vehicles.remove(vehicle.id)}
+                        dealerMake={vehicle.make}
+                        dealerModel={vehicle.model}
+                    />
+                )}
+            </div>
             {vehicles.current.length > 0 && <button onClick={vehicles.clear}>Clear</button>}
             <button onClick={vehicles.reset}>Reset</button>
         </>

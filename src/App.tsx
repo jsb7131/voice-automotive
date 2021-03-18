@@ -3,6 +3,7 @@ import './App.css';
 import logo from './logo.svg';
 import { useLayout } from './hooks/LayoutContext';
 import { useDealer } from './hooks/useDealer';
+import { useVehicles } from './hooks/VehiclesContext';
 import { Panel } from './components/Panel';
 import { VehicleBlock } from './components/VehicleBlock';
 import { VehiclesView } from './components/VehiclesView';
@@ -11,6 +12,7 @@ export default function App() {
 
   const panel = useLayout();
   const dealer = useDealer();
+  const vehicles = useVehicles();
   const pxSquare = panel.collapsed ? 100 : 150;
   // const panelButtonText = panel.collapsed ? "Open Panel" : "Close Panel";
 
@@ -23,11 +25,14 @@ export default function App() {
             {dealer.map((vehicle, i) => 
               <VehicleBlock
                 key={vehicle.id}
+                inline={false}
                 width={pxSquare}
                 height={pxSquare}
-                BGColor={"white"}
-                HoverColor={"green"}
+                bgColor={"white"}
+                horiCenter={true}
+                hoverColor={"green"}
                 last={i === dealer.length - 1 ? true : false}
+                click={() => vehicles.add({make: vehicle.make, model: vehicle.model})}
                 dealerMake={vehicle.make}
                 dealerModel={vehicle.model}
               />
