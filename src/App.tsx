@@ -25,7 +25,6 @@ export default function App() {
             {dealer.map((vehicle, i) => 
               <VehicleBlock
                 key={vehicle.id}
-                inline={false}
                 width={pxSquare}
                 height={pxSquare}
                 bgColor={"white"}

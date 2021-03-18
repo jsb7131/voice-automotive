@@ -13,7 +13,6 @@ export const VehiclesView: React.FC = () => {
                 {vehicles.current.map(vehicle => 
                     <VehicleBlock
                         key={vehicle.id}
-                        inline={true}
                         width={200}
                         height={100}
                         bgColor={"peru"}

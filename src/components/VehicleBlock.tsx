@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 type VBProps = {
-    inline: boolean;
     bgColor: string;
     horiCenter: boolean;
     hoverColor: string;
@@ -15,7 +14,6 @@ type VBProps = {
 };
 
 type ContainerProps = {
-    inline: boolean;
     bgColor: string;
     horiCenter:boolean;
     hoverColor: string;
@@ -25,7 +23,6 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
-    display: ${p => p.inline ? "inline-block" : "block"};
     width: ${p => p.width}px;
     height: ${p => p.height}px;
     color: black;
@@ -41,11 +38,10 @@ const Container = styled.div<ContainerProps>`
     };
 `;
 
-export const VehicleBlock: React.FC<VBProps> = ({ inline, width, height, bgColor, horiCenter, hoverColor, last, click, dealerMake, dealerModel }) => {
+export const VehicleBlock: React.FC<VBProps> = ({ width, height, bgColor, horiCenter, hoverColor, last, click, dealerMake, dealerModel }) => {
     return (
         <Container
             className="list-item"
-            inline={inline}
             width={width}
             height={height}
             bgColor={bgColor}
