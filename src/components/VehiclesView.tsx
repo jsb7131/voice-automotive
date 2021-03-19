@@ -9,7 +9,7 @@ export const VehiclesView: React.FC = () => {
     return (
         <>
             <button onClick={() => vehicles.add({make: "Alta", model: "Redshift"})}>Add Alta Redshift</button>
-            <div className="garage-item">
+            <div className="garage-container">
                 {vehicles.current.map(vehicle => 
                     <VehicleBlock
                         key={vehicle.id}
