@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import logo from './logo.svg';
 import { useLayout } from './hooks/LayoutContext';
 import { useDealer } from './hooks/useDealer';
 import { useVehicles } from './hooks/VehiclesContext';
@@ -38,8 +37,13 @@ export default function App() {
             )}
           </Panel>
           {/* <button onClick={() => panel.collapse(panel.collapsed)}>{panelButtonText}</button> */}
-          <img src={logo} className="App-logo" alt="logo" />
-          <VehiclesView/>
+          <div style={{overflow: "auto"}}>
+            <div id="garage-top-bar">
+              {vehicles.current.length > 0 && <button onClick={vehicles.clear}>Clear</button>}
+              <button onClick={vehicles.reset}>Reset</button>
+            </div>
+            <VehiclesView/>
+          </div>
         </header>
     </div>
   );

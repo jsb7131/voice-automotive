@@ -7,26 +7,21 @@ export const VehiclesView: React.FC = () => {
     const vehicles = useVehicles();
 
     return (
-        <>
-            <button onClick={() => vehicles.add({make: "Alta", model: "Redshift"})}>Add Alta Redshift</button>
-            <div className="garage-container">
-                {vehicles.current.map(vehicle => 
-                    <VehicleBlock
-                        key={vehicle.id}
-                        width={200}
-                        height={100}
-                        bgColor={"peru"}
-                        horiCenter={false}
-                        hoverColor={"darkblue"}
-                        last={false}
-                        click={() => vehicles.remove(vehicle.id)}
-                        dealerMake={vehicle.make}
-                        dealerModel={vehicle.model}
-                    />
-                )}
-            </div>
-            {vehicles.current.length > 0 && <button onClick={vehicles.clear}>Clear</button>}
-            <button onClick={vehicles.reset}>Reset</button>
-        </>
+        <div id="garage-container">
+            {vehicles.current.map((vehicle, i) => 
+                <VehicleBlock
+                    key={vehicle.id}
+                    width={400}
+                    height={270}
+                    bgColor={"peru"}
+                    horiCenter={false}
+                    hoverColor={"darkblue"}
+                    last={i === vehicles.current.length - 1 ? true : false}
+                    click={() => vehicles.remove(vehicle.id)}
+                    dealerMake={vehicle.make}
+                    dealerModel={vehicle.model}
+                />
+            )}
+        </div>
     );
 };

@@ -29,7 +29,7 @@ const Container = styled.div<ContainerProps>`
     background: ${p => p.bgColor};
     border-radius: 2px;
     margin-top: 20px;
-    margin-left: ${p => p.horiCenter ? "auto" : "20px"};
+    margin-left: ${p => p.horiCenter ? "auto" : 0};
     margin-right: ${p => p.horiCenter ? "auto" : "20px"};
     margin-bottom: ${p => p.last ? 20 : 0}px;
     &:hover {

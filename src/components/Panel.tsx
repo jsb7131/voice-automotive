@@ -12,11 +12,8 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 100%;
-    width: ${p => p.isCollapsed ? 150 : 300}px;
+    min-width: ${p => p.isCollapsed ? 150 : 300}px;
     background: black;
     &:hover {
         background: darkblue;
