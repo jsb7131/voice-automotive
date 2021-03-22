@@ -39,8 +39,9 @@ export default function App() {
           {/* <button onClick={() => panel.collapse(panel.collapsed)}>{panelButtonText}</button> */}
           <div style={{overflow: "auto"}}>
             <div id="garage-top-bar">
-              {vehicles.current.length > 0 && <button onClick={vehicles.clear}>Clear</button>}
-              <button onClick={vehicles.reset}>Reset</button>
+              <div style={{marginRight: "80px"}}>Collection</div>
+              {vehicles.current.length > 0 && <div className="clk" onClick={vehicles.clear}>Clear</div>}
+              <div className="clk" onClick={vehicles.reset}>Reset</div>
             </div>
             <VehiclesView/>
           </div>

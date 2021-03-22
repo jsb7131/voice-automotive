@@ -23,19 +23,20 @@
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
-  margin-bottom: 20px;
   padding-left: 20px;
-  position: relative;
-  top: 60px;
 }
 
 #garage-top-bar {
-  position: fixed;
-  height: 40px;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  background-color: darkslategray;
-  z-index: 1;
-  padding: 10px;
+  align-items: baseline;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.clk {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: calc(5px + 2vmin);
 }
