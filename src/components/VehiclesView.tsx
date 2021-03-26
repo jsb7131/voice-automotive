@@ -13,6 +13,7 @@ export const VehiclesView: React.FC = () => {
                     key={vehicle.id}
                     width={400}
                     height={270}
+                    fontSize={"calc(10px + 2vmin)"}
                     bgColor={"peru"}
                     horiCenter={false}
                     hoverColor={"darkblue"}

@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 type VBProps = {
+    width: number;
+    height: number;
+    fontSize: string;
     bgColor: string;
     horiCenter: boolean;
     hoverColor: string;
-    width: number;
-    height: number;
     last: boolean;
     click: () => void;
     dealerMake: string;
@@ -14,17 +15,19 @@ type VBProps = {
 };
 
 type ContainerProps = {
+    width: number;
+    height: number;
+    fontSize: string;
     bgColor: string;
     horiCenter:boolean;
     hoverColor: string;
-    width: number;
-    height: number;
     last: boolean;
 };
 
 const Container = styled.div<ContainerProps>`
     width: ${p => p.width}px;
     height: ${p => p.height}px;
+    font-size: ${p => p.fontSize};
     color: black;
     background: ${p => p.bgColor};
     border-radius: 10px;
@@ -38,12 +41,13 @@ const Container = styled.div<ContainerProps>`
     };
 `;
 
-export const VehicleBlock: React.FC<VBProps> = ({ width, height, bgColor, horiCenter, hoverColor, last, click, dealerMake, dealerModel }) => {
+export const VehicleBlock: React.FC<VBProps> = ({ width, height, fontSize, bgColor, horiCenter, hoverColor, last, click, dealerMake, dealerModel }) => {
     return (
         <Container
             className="list-item"
             width={width}
             height={height}
+            fontSize={fontSize}
             bgColor={bgColor}
             horiCenter={horiCenter}
             hoverColor={hoverColor}

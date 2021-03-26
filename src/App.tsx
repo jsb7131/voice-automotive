@@ -13,6 +13,7 @@ export default function App() {
   const dealer = useDealer();
   const vehicles = useVehicles();
   const pxSquare = panel.collapsed ? 100 : 150;
+  const blockFontSize = panel.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
   const panelButtonText = panel.collapsed ? "Open" : "Close";
 
   return (
@@ -26,8 +27,9 @@ export default function App() {
                 key={vehicle.id}
                 width={pxSquare}
                 height={pxSquare}
+                fontSize={blockFontSize}
                 bgColor={"white"}
-                horiCenter={true}
+                horiCenter
                 hoverColor={"green"}
                 last={i === dealer.length - 1 ? true : false}
                 click={() => vehicles.add({make: vehicle.make, model: vehicle.model})}
@@ -40,8 +42,8 @@ export default function App() {
           <div style={{overflow: "auto"}}>
             <div id="garage-top-bar">
               <div style={{marginRight: "80px"}}>Collection</div>
-              {vehicles.current.length > 0 && <div className="clk" onClick={vehicles.clear}>Clear</div>}
-              <div className="clk" onClick={vehicles.reset}>Reset</div>
+              {vehicles.current.length > 0 && <div className="clk list-item" onClick={vehicles.clear}>Clear</div>}
+              <div className="clk list-item" onClick={vehicles.reset}>Reset</div>
             </div>
             <VehiclesView/>
           </div>
