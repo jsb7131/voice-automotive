@@ -6,7 +6,7 @@ type VBProps = {
     height: number;
     fontSize: string;
     bgColor: string;
-    horiCenter: boolean;
+    horiCenter?: boolean;
     hoverColor: string;
     last: boolean;
     click: () => void;
@@ -19,7 +19,7 @@ type ContainerProps = {
     height: number;
     fontSize: string;
     bgColor: string;
-    horiCenter:boolean;
+    horiCenter?: boolean;
     hoverColor: string;
     last: boolean;
 };
