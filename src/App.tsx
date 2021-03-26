@@ -13,13 +13,13 @@ export default function App() {
   const dealer = useDealer();
   const vehicles = useVehicles();
   const pxSquare = panel.collapsed ? 100 : 150;
-  // const panelButtonText = panel.collapsed ? "Open Panel" : "Close Panel";
+  const panelButtonText = panel.collapsed ? "Open" : "Close";
 
   return (
     <div className="App">
         <header className="App-header">
           <Panel layoutCollapsed={panel.collapsed} updateLayout={panel.collapse}>
-            {/* <button>{panelButtonText}</button> */}
+            <button style={panel.collapsed ? {fontSize: "10px"} : {fontSize: "14px"}}>{panelButtonText}</button>
             {!panel.collapsed && <h2>Dealership</h2>}
             {dealer.map((vehicle, i) => 
               <VehicleBlock
