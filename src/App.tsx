@@ -19,8 +19,13 @@ export default function App() {
   return (
     <div className="App">
         <header className="App-header">
-          <Panel layoutCollapsed={panel.collapsed} updateLayout={panel.collapse}>
-            <button style={panel.collapsed ? {fontSize: "10px"} : {fontSize: "14px"}}>{panelButtonText}</button>
+          <Panel isCollapsed={panel.collapsed}>
+            <button
+              style={panel.collapsed ? {fontSize: "10px"} : {fontSize: "14px"}}
+              onClick={() => panel.collapse(panel.collapsed)}
+            >
+              {panelButtonText}
+            </button>
             {!panel.collapsed && <h2>Dealership</h2>}
             {dealer.map((vehicle, i) => 
               <VehicleBlock
@@ -38,7 +43,6 @@ export default function App() {
               />
             )}
           </Panel>
-          {/* <button onClick={() => panel.collapse(panel.collapsed)}>{panelButtonText}</button> */}
           <div style={{overflow: "auto"}}>
             <div id="garage-top-bar">
               <div style={{marginRight: "80px"}}>Collection</div>

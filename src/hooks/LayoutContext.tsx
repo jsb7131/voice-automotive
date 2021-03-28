@@ -6,7 +6,7 @@ type Layout = {
 };
 
 const LayoutContext = React.createContext<Layout>({
-    collapsed: false,
+    collapsed: true,
     collapse: () => {}
 });
 
@@ -14,7 +14,7 @@ export const useLayout = () => useContext(LayoutContext);
 
 export const LayoutProvider: React.FC = ({ children }) => {
 
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
 
     const collapse = (value: boolean) => setCollapsed(!value);
 
