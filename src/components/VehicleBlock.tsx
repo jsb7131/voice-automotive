@@ -2,26 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 
 type VBProps = {
-    width: number;
-    height: number;
-    fontSize: string;
-    bgColor: string;
-    horiCenter?: boolean;
-    hoverColor: string;
-    last: boolean;
-    click: () => void;
-    dealerMake: string;
-    dealerModel: string;
+    width: number,
+    height: number,
+    fontSize: string,
+    bgColor: string,
+    horiCenter?: boolean,
+    hoverColor: string,
+    last: boolean,
+    click: () => void,
+    dealerMake: string,
+    dealerModel: string
 };
 
 type ContainerProps = {
-    width: number;
-    height: number;
-    fontSize: string;
-    bgColor: string;
-    horiCenter?: boolean;
-    hoverColor: string;
-    last: boolean;
+    width: number,
+    height: number,
+    fontSize: string,
+    bgColor: string,
+    horiCenter?: boolean,
+    hoverColor: string,
+    last: boolean
 };
 
 const Container = styled.div<ContainerProps>`
@@ -41,20 +41,20 @@ const Container = styled.div<ContainerProps>`
     };
 `;
 
-export const VehicleBlock: React.FC<VBProps> = ({ width, height, fontSize, bgColor, horiCenter, hoverColor, last, click, dealerMake, dealerModel }) => {
+export const VehicleBlock: React.FC<VBProps> = props => {
     return (
         <Container
             className="list-item"
-            width={width}
-            height={height}
-            fontSize={fontSize}
-            bgColor={bgColor}
-            horiCenter={horiCenter}
-            hoverColor={hoverColor}
-            last={last}
-            onClick={click}
+            width={props.width}
+            height={props.height}
+            fontSize={props.fontSize}
+            bgColor={props.bgColor}
+            horiCenter={props.horiCenter}
+            hoverColor={props.hoverColor}
+            last={props.last}
+            onClick={props.click}
         >
-            {dealerMake + " " + dealerModel}
+            {props.dealerMake + " " + props.dealerModel}
         </Container>
     );
 };
