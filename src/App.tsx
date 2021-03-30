@@ -46,8 +46,8 @@ export default function App() {
           <div style={{overflow: "auto"}}>
             <div id="garage-top-bar">
               <div style={{marginRight: "80px"}}>Collection</div>
-              {vehicles.current.length > 0 && <div className="clk list-item" onClick={vehicles.clear}>Clear</div>}
-              <div className="clk list-item" onClick={vehicles.reset}>Reset</div>
+              {vehicles.current.length > 0 && <div className="top-nav-btn no-select-pointer" onClick={vehicles.clear}>Clear</div>}
+              <div className="top-nav-btn no-select-pointer" onClick={vehicles.reset}>Reset</div>
             </div>
             <VehiclesView/>
           </div>

@@ -44,7 +44,7 @@ const Container = styled.div<ContainerProps>`
 export const VehicleBlock: React.FC<VBProps> = props => {
     return (
         <Container
-            className="list-item"
+            className="no-select-pointer"
             width={props.width}
             height={props.height}
             fontSize={props.fontSize}

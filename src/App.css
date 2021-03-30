@@ -11,7 +11,7 @@
   color: white;
 }
 
-.list-item {
+.no-select-pointer {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -35,7 +35,7 @@
   padding-left: 10px;
 }
 
-.clk {
+.top-nav-btn {
   margin-right: 10px;
   font-size: calc(5px + 2vmin);
 }
