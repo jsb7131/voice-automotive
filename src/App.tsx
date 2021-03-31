@@ -26,7 +26,7 @@ export default function App() {
             >
               {panelButtonText}
             </button>
-            {!panel.collapsed && <h2>Dealership</h2>}
+            {!panel.collapsed && <h2 style={{color: "white"}}>Dealership</h2>}
             {dealer.map((vehicle, i) => 
               <VehicleBlock
                 key={vehicle.id}

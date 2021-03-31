@@ -3,12 +3,12 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   height: 100vh;
   display: flex;
   flex-direction: row;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: gray;
 }
 
 .no-select-pointer {

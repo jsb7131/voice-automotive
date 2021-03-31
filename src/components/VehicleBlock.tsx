@@ -30,6 +30,7 @@ const Container = styled.div<ContainerProps>`
     font-size: ${p => p.fontSize};
     color: black;
     background: ${p => p.bgColor};
+    border: ${p => p.horiCenter ? "none" : "1px solid black"};
     border-radius: 10px;
     margin-top: 20px;
     margin-left: ${p => p.horiCenter ? "auto" : 0};
