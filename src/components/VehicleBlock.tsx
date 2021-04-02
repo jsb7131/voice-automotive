@@ -25,6 +25,10 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     width: ${p => p.width}px;
     height: ${p => p.height}px;
     font-size: ${p => p.fontSize};
@@ -33,8 +37,7 @@ const Container = styled.div<ContainerProps>`
     border: ${p => p.horiCenter ? "none" : "1px solid black"};
     border-radius: 10px;
     margin-top: 20px;
-    margin-left: ${p => p.horiCenter ? "auto" : 0};
-    margin-right: ${p => p.horiCenter ? "auto" : "20px"};
+    margin-right: ${p => p.horiCenter ? "0" : "20px"};
     margin-bottom: ${p => p.last ? 20 : 0}px;
     &:hover {
         color: white;

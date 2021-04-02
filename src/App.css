@@ -1,12 +1,7 @@
-.App {
-  text-align: center;
-}
-
 .App-header {
   background-color: white;
   height: 100vh;
   display: flex;
-  flex-direction: row;
   font-size: calc(10px + 2vmin);
   color: gray;
 }
@@ -22,7 +17,6 @@
 #garage-container {
   display: flex;
   flex-flow: row wrap;
-  align-content: flex-start;
   padding-left: 20px;
 }
 

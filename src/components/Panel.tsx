@@ -8,6 +8,7 @@ type PanelProps = {
 };
 
 const Container = styled.div<PanelProps>`
+    text-align: center;
     height: 100%;
     min-width: ${p => p.isCollapsed ? p.closedWidth : p.openWidth}px;
     background: black;
