@@ -16,14 +16,13 @@
 
 #garage-container {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   padding-left: 20px;
 }
 
 #garage-top-bar {
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
   align-items: baseline;
   padding-top: 10px;
   padding-left: 10px;

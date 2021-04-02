@@ -34,6 +34,7 @@ export default function App() {
                 height={pxSquare}
                 fontSize={blockFontSize}
                 bgColor={"white"}
+                border={"none"}
                 horiCenter
                 hoverColor={"green"}
                 last={i === dealer.length - 1 ? true : false}
