@@ -21,7 +21,7 @@ export default function App() {
         <header className="App-header">
           <Panel isCollapsed={panel.collapsed} closedWidth={150} openWidth={300}>
             <button
-              style={panel.collapsed ? {fontSize: "10px"} : {fontSize: "14px"}}
+              style={{fontSize: `${panel.collapsed ? "10px" : "14px"}`, marginTop: "10px"}}
               onClick={() => panel.collapse(panel.collapsed)}
             >
               {panelButtonText}
