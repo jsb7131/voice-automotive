@@ -11,13 +11,16 @@ const Container = styled.div<PanelProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
     min-width: ${p => p.isCollapsed ? p.closedWidth : p.openWidth}px;
     background: black;
     &:hover {
         background: darkblue;
     };
     overflow: auto;
+    padding-bottom: 20px;
 `;
 
 export const Panel: React.FC<PanelProps> = ({ isCollapsed, closedWidth, openWidth, children }) => {

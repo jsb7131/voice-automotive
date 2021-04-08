@@ -9,7 +9,6 @@ type VBProps = {
     border: string,
     horiCenter?: boolean,
     hoverColor: string,
-    last: boolean,
     click: () => void,
     dealerMake: string,
     dealerModel: string
@@ -22,8 +21,7 @@ type ContainerProps = {
     bgColor: string,
     border: string,
     horiCenter?: boolean,
-    hoverColor: string,
-    last: boolean
+    hoverColor: string
 };
 
 const Container = styled.div<ContainerProps>`
@@ -41,7 +39,6 @@ const Container = styled.div<ContainerProps>`
     border-radius: 10px;
     margin-top: 20px;
     margin-right: ${p => p.horiCenter ? "0" : "20px"};
-    margin-bottom: ${p => p.last ? 20 : 0}px;
     &:hover {
         color: white;
         background: ${p => p.hoverColor};
@@ -59,7 +56,6 @@ export const VehicleBlock: React.FC<VBProps> = props => {
             border={props.border}
             horiCenter={props.horiCenter}
             hoverColor={props.hoverColor}
-            last={props.last}
             onClick={props.click}
         >
             {props.dealerMake + " " + props.dealerModel}

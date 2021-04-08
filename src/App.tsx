@@ -25,11 +25,10 @@ export default function App() {
               {panelButtonText}
             </button>
             {!panel.collapsed && <h2 style={{color: "white"}}>Dealership</h2>}
-            {dealer.map((vehicle, i) =>
+            {dealer.map(vehicle =>
               <VehicleStack
                 key={vehicle.id}
                 collapsed={panel.collapsed}
-                last={i === dealer.length - 1 ? true : false}
                 dealerMake={vehicle.make}
                 dealerModel={vehicle.model}
               />

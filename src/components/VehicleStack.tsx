@@ -4,7 +4,6 @@ import { useVehicles } from '../hooks/VehiclesContext';
 
 type VSProps = {
     collapsed: boolean,
-    last: boolean,
     dealerMake: string,
     dealerModel: string
 };
@@ -23,12 +22,11 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 border={"none"}
                 horiCenter
                 hoverColor={"green"}
-                last={false}
                 click={() => vehicles.add({make: props.dealerMake, model: props.dealerModel})}
                 dealerMake={props.dealerMake}
                 dealerModel={props.dealerModel}
             />
-            {true && <div style={{width: "50px", minHeight: "50px", background: "yellow", marginBottom: `${props.last ? 20 : 0}px`}}></div>}
+            {true && <div style={{width: "50px", minHeight: "50px", background: "yellow"}}></div>}
         </>
     );
 };
