@@ -8,7 +8,7 @@ export const VehiclesView: React.FC = () => {
 
     return (
         <div id="garage-container">
-            {vehicles.current.map((vehicle, i) => 
+            {vehicles.current.map(vehicle => 
                 <VehicleBlock
                     key={vehicle.id}
                     width={400}
