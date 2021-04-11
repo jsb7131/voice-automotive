@@ -26,7 +26,16 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 dealerMake={props.dealerMake}
                 dealerModel={props.dealerModel}
             />
-            {true && <div style={{width: `${pxSquare}px`, minHeight: `${pxSquare}px`, background: "rgba(155, 155, 155, 0.5)"}}></div>}
+            {true &&
+                <div
+                    style={{
+                        width: `${pxSquare}px`,
+                        minHeight: `${pxSquare}px`,
+                        background: "rgba(155, 155, 155, 0.5)"
+                    }}
+                >
+                </div>
+            }
         </>
     );
 };
