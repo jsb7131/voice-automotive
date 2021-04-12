@@ -1,6 +1,7 @@
 import React from 'react';
 import { VehicleBlock } from './VehicleBlock';
 import { useVehicles } from '../hooks/VehiclesContext';
+import { usePopDown } from '../hooks/usePopDown';
 
 type VSProps = {
     collapsed: boolean,
@@ -9,9 +10,13 @@ type VSProps = {
 };
 
 export const VehicleStack: React.FC<VSProps> = props => {
+    
     const vehicles = useVehicles();
+    const colorTray = usePopDown();
+
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
+
     return (
         <>
             <VehicleBlock
@@ -22,11 +27,14 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 border={"none"}
                 horiCenter
                 hoverColor={"green"}
-                click={() => vehicles.add({make: props.dealerMake, model: props.dealerModel})}
+                click={() => {
+                    vehicles.add({make: props.dealerMake, model: props.dealerModel});
+                    colorTray.toggle(colorTray.open);
+                }}
                 dealerMake={props.dealerMake}
                 dealerModel={props.dealerModel}
             />
-            {true &&
+            {colorTray.open &&
                 <div
                     style={{
                         width: `${pxSquare}px`,
