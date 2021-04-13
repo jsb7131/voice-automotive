@@ -17,6 +17,11 @@ export const VehicleStack: React.FC<VSProps> = props => {
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
 
+    const vbClick = () => {
+        vehicles.add({make: props.dealerMake, model: props.dealerModel});
+        colorTray.toggle(colorTray.open);
+    };
+
     return (
         <>
             <VehicleBlock
@@ -27,10 +32,7 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 border={"none"}
                 horiCenter
                 hoverColor={"green"}
-                click={() => {
-                    vehicles.add({make: props.dealerMake, model: props.dealerModel});
-                    colorTray.toggle(colorTray.open);
-                }}
+                click={vbClick}
                 dealerMake={props.dealerMake}
                 dealerModel={props.dealerModel}
             />
