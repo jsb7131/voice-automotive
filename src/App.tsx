@@ -6,12 +6,14 @@ import { useVehicles } from './hooks/VehiclesContext';
 import { Panel } from './components/Panel';
 import { VehiclesView } from './components/VehiclesView';
 import { VehicleStack } from './components/VehicleStack';
+import { useActiveID } from './hooks/useActive';
 
 export default function App() {
 
   const panel = useLayout();
   const dealer = useDealer();
   const vehicles = useVehicles();
+  const active = useActiveID();
   const panelButtonText = panel.collapsed ? "Open" : "Close";
 
   return (
@@ -28,6 +30,9 @@ export default function App() {
             {dealer.map(vehicle =>
               <VehicleStack
                 key={vehicle.id}
+                id={vehicle.id}
+                activeId={active.id}
+                setActiveId={active.setId}
                 collapsed={panel.collapsed}
                 dealerMake={vehicle.make}
                 dealerModel={vehicle.model}

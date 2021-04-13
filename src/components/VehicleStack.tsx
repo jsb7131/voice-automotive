@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { VehicleBlock } from './VehicleBlock';
 import { useVehicles } from '../hooks/VehiclesContext';
 import { usePopDown } from '../hooks/usePopDown';
 
 type VSProps = {
+    id: string,
+    activeId: string,
+    setActiveId: (value: string) => void,
     collapsed: boolean,
     dealerMake: string,
     dealerModel: string
@@ -17,9 +20,16 @@ export const VehicleStack: React.FC<VSProps> = props => {
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
 
+    useEffect(() => {
+        if (props.id !== props.activeId) {
+            colorTray.toggle(false);
+        };
+    });
+
     const vbClick = () => {
         vehicles.add({make: props.dealerMake, model: props.dealerModel});
-        colorTray.toggle(colorTray.open);
+        colorTray.toggle(!colorTray.open);
+        props.setActiveId(props.id);
     };
 
     return (
