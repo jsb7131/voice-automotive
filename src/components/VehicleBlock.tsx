@@ -9,7 +9,7 @@ type VBProps = {
     border: string,
     horiCenter?: boolean,
     hoverColor: string,
-    click: () => void,
+    onClick: () => void,
     dealerMake: string,
     dealerModel: string
 };
@@ -49,14 +49,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
     return (
         <Container
             className="no-select-pointer"
-            width={props.width}
-            height={props.height}
-            fontSize={props.fontSize}
-            bgColor={props.bgColor}
-            border={props.border}
-            horiCenter={props.horiCenter}
-            hoverColor={props.hoverColor}
-            onClick={props.click}
+            {...props}
         >
             {props.dealerMake + " " + props.dealerModel}
         </Container>

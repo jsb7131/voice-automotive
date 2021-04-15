@@ -41,7 +41,7 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 border={"none"}
                 horiCenter
                 hoverColor={"green"}
-                click={vbClick}
+                onClick={vbClick}
                 dealerMake={props.dealerMake}
                 dealerModel={props.dealerModel}
             />

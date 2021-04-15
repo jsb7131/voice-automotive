@@ -17,7 +17,7 @@ export const VehiclesView: React.FC = () => {
                     bgColor={"white"}
                     border={"1px solid black"}
                     hoverColor={"darkblue"}
-                    click={() => vehicles.remove(vehicle.id)}
+                    onClick={() => vehicles.remove(vehicle.id)}
                     dealerMake={vehicle.make}
                     dealerModel={vehicle.model}
                 />
