@@ -27,7 +27,6 @@ export const VehicleStack: React.FC<VSProps> = props => {
     });
 
     const vbClick = () => {
-        vehicles.add({make: props.dealerMake, model: props.dealerModel});
         colorTray.toggle(!colorTray.open);
         props.setActiveId(props.id);
     };
@@ -48,6 +47,8 @@ export const VehicleStack: React.FC<VSProps> = props => {
             />
             {colorTray.open &&
                 <div
+                    className="no-select-pointer"
+                    onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel})}
                     style={{
                         width: `${pxSquare}px`,
                         minHeight: `${pxSquare}px`,
