@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { VehicleBlock } from './VehicleBlock';
 import { useVehicles } from '../hooks/VehiclesContext';
-import { usePopDown } from '../hooks/usePopDown';
+import { useColorTray } from '../hooks/useColorTray';
 
 type VSProps = {
     id: string,
@@ -15,7 +15,7 @@ type VSProps = {
 export const VehicleStack: React.FC<VSProps> = props => {
     
     const vehicles = useVehicles();
-    const colorTray = usePopDown();
+    const colorTray = useColorTray();
 
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
