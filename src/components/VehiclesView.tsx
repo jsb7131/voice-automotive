@@ -14,7 +14,7 @@ export const VehiclesView: React.FC = () => {
                     width={400}
                     height={270}
                     fontSize={"calc(10px + 2vmin)"}
-                    bgColor={"white"}
+                    bgColor={vehicle.color}
                     border={"1px solid black"}
                     hoverColor={"darkblue"}
                     onClick={() => vehicles.remove(vehicle.id)}

@@ -46,15 +46,37 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 dealerModel={props.dealerModel}
             />
             {colorTray.open &&
-                <div
-                    className="no-select-pointer"
-                    onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel})}
-                    style={{
-                        width: `${pxSquare}px`,
-                        minHeight: `${pxSquare}px`,
-                        background: "rgba(155, 155, 155, 0.5)"
-                    }}
-                >
+                <div style={{width: `${pxSquare}px`, minHeight: `${pxSquare}px`}}>
+                    <div
+                        className="no-select-pointer"
+                        style={{width: "100%", height: "20%", backgroundColor: "white"}}
+                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "white"})}
+                    > 
+                    </div>
+                    <div
+                        className="no-select-pointer"
+                        style={{width: "100%", height: "20%", backgroundColor: "gray"}}
+                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "gray"})}
+                    > 
+                    </div>
+                    <div
+                        className="no-select-pointer"
+                        style={{width: "100%", height: "20%", backgroundColor: "black"}}
+                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "black"})}
+                    > 
+                    </div>
+                    <div
+                        className="no-select-pointer"
+                        style={{width: "100%", height: "20%", backgroundColor: "red"}}
+                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "red"})}
+                    > 
+                    </div>
+                    <div
+                        className="no-select-pointer"
+                        style={{width: "100%", height: "20%", backgroundColor: "blue"}}
+                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "blue"})}
+                    > 
+                    </div>
                 </div>
             }
         </>

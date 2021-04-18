@@ -1,8 +1,8 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { uniqueId } from 'lodash';
 
-type Vehicle = {id: string, make: string, model: string};
-type AddVehicle = {make: string, model: string};
+type Vehicle = {id: string, make: string, model: string, color: string};
+type AddVehicle = {make: string, model: string, color: string};
 type AddFunc<T> = (item: T) => void;
 type RemoveFunc = (id: string) => void;
 type VoidFunc = () => void;
@@ -17,12 +17,12 @@ type Context = {
 
 // Seeded vehicles
 const automobiles: Vehicle[] = [
-    {id: uniqueId(), make: "Tesla", model: "Model S"},
-    {id: uniqueId(), make: "Tesla", model: "Model 3"},
-    {id: uniqueId(), make: "Tesla", model: "Model X"},
-    {id: uniqueId(), make: "Tesla", model: "Model Y"},
-    {id: uniqueId(), make: "Tesla", model: "Roadster"},
-    {id: uniqueId(), make: "Tesla", model: "Cybertruck"}
+    {id: uniqueId(), make: "Tesla", model: "Model S", color: "green"},
+    {id: uniqueId(), make: "Tesla", model: "Model 3", color: "red"},
+    {id: uniqueId(), make: "Tesla", model: "Model X", color: "lightblue"},
+    {id: uniqueId(), make: "Tesla", model: "Model Y", color: "yellow"},
+    {id: uniqueId(), make: "Tesla", model: "Roadster", color: "orange"},
+    {id: uniqueId(), make: "Tesla", model: "Cybertruck", color: "purple"}
 ];
 
 const VehiclesContext = React.createContext<Context>({
