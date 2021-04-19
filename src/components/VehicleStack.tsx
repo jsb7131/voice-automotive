@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { VehicleBlock } from './VehicleBlock';
 import { useVehicles } from '../hooks/VehiclesContext';
 import { useColorTray } from '../hooks/useColorTray';
+import { uniqueId } from 'lodash';
 
 type VSProps = {
     id: string,
@@ -19,6 +20,8 @@ export const VehicleStack: React.FC<VSProps> = props => {
 
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
+
+    const vehicleColors = ["white", "gray", "black", "red", "blue"];
 
     useEffect(() => {
         if (props.id !== props.activeId) {
@@ -47,36 +50,15 @@ export const VehicleStack: React.FC<VSProps> = props => {
             />
             {colorTray.open &&
                 <div style={{width: `${pxSquare}px`, minHeight: `${pxSquare}px`}}>
-                    <div
-                        className="no-select-pointer"
-                        style={{width: "100%", height: "20%", backgroundColor: "white"}}
-                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "white"})}
-                    > 
-                    </div>
-                    <div
-                        className="no-select-pointer"
-                        style={{width: "100%", height: "20%", backgroundColor: "gray"}}
-                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "gray"})}
-                    > 
-                    </div>
-                    <div
-                        className="no-select-pointer"
-                        style={{width: "100%", height: "20%", backgroundColor: "black"}}
-                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "black"})}
-                    > 
-                    </div>
-                    <div
-                        className="no-select-pointer"
-                        style={{width: "100%", height: "20%", backgroundColor: "red"}}
-                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "red"})}
-                    > 
-                    </div>
-                    <div
-                        className="no-select-pointer"
-                        style={{width: "100%", height: "20%", backgroundColor: "blue"}}
-                        onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: "blue"})}
-                    > 
-                    </div>
+                    {vehicleColors.map(vehicleColor =>
+                        <div
+                            key={uniqueId()}
+                            className="no-select-pointer"
+                            style={{width: "100%", height: "20%", backgroundColor: vehicleColor}}
+                            onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: vehicleColor})}
+                        >
+                        </div>
+                    )}
                 </div>
             }
         </>
