@@ -36,6 +36,8 @@ export default function App() {
                 collapsed={panel.collapsed}
                 dealerMake={vehicle.make}
                 dealerModel={vehicle.model}
+                vehicleColors={vehicle.colors}
+                addVehicle={vehicles.add}
               />
             )}
           </Panel>

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { VehicleBlock } from './VehicleBlock';
-import { useVehicles } from '../hooks/VehiclesContext';
 import { useColorTray } from '../hooks/useColorTray';
 import { uniqueId } from 'lodash';
+
+type Vehicle = {make: string, model: string, color: string};
 
 type VSProps = {
     id: string,
@@ -10,18 +11,17 @@ type VSProps = {
     setActiveId: (value: string) => void,
     collapsed: boolean,
     dealerMake: string,
-    dealerModel: string
+    dealerModel: string,
+    vehicleColors: string[],
+    addVehicle: (vehicle: Vehicle) => void
 };
 
 export const VehicleStack: React.FC<VSProps> = props => {
-    
-    const vehicles = useVehicles();
+
     const colorTray = useColorTray();
 
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
-
-    const vehicleColors = ["white", "gray", "black", "red", "blue"];
 
     useEffect(() => {
         if (props.id !== props.activeId) {
@@ -49,13 +49,13 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 dealerModel={props.dealerModel}
             />
             {colorTray.open &&
-                <div style={{width: `${pxSquare}px`, minHeight: `${pxSquare}px`}}>
-                    {vehicleColors.map(vehicleColor =>
+                <div style={{width: `${pxSquare}px`}}>
+                    {props.vehicleColors.map(vehicleColor =>
                         <div
                             key={uniqueId()}
                             className="no-select-pointer"
-                            style={{width: "100%", height: "20%", backgroundColor: vehicleColor}}
-                            onClick={() => vehicles.add({make: props.dealerMake, model: props.dealerModel, color: vehicleColor})}
+                            style={{width: "100%", height: "20px", backgroundColor: vehicleColor}}
+                            onClick={() => props.addVehicle({make: props.dealerMake, model: props.dealerModel, color: vehicleColor})}
                         >
                         </div>
                     )}

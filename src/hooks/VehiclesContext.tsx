@@ -17,12 +17,12 @@ type Context = {
 
 // Seeded vehicles
 const automobiles: Vehicle[] = [
-    {id: uniqueId(), make: "Tesla", model: "Model S", color: "green"},
+    {id: uniqueId(), make: "Tesla", model: "Model S", color: "black"},
     {id: uniqueId(), make: "Tesla", model: "Model 3", color: "red"},
     {id: uniqueId(), make: "Tesla", model: "Model X", color: "lightblue"},
-    {id: uniqueId(), make: "Tesla", model: "Model Y", color: "yellow"},
+    {id: uniqueId(), make: "Tesla", model: "Model Y", color: "white"},
     {id: uniqueId(), make: "Tesla", model: "Roadster", color: "orange"},
-    {id: uniqueId(), make: "Tesla", model: "Cybertruck", color: "purple"}
+    {id: uniqueId(), make: "Tesla", model: "Cybertruck", color: "gray"}
 ];
 
 const VehiclesContext = React.createContext<Context>({

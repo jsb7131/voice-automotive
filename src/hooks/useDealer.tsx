@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
 import { uniqueId } from 'lodash';
 
-type Vehicle = {id: string, make: string, model: string};
+type Colors = string[];
+type Vehicle = {id: string, make: string, model: string, colors: Colors};
 
 // Seeded vehicles
 const automobiles: Vehicle[] = [
-    {id: uniqueId(), make: "Alta", model: "Redshift"},
-    {id: uniqueId(), make: "Tesla", model: "Model S"},
-    {id: uniqueId(), make: "Tesla", model: "Model 3"},
-    {id: uniqueId(), make: "Tesla", model: "Model X"},
-    {id: uniqueId(), make: "Tesla", model: "Model Y"},
-    {id: uniqueId(), make: "Tesla", model: "Roadster"},
-    {id: uniqueId(), make: "Tesla", model: "Cybertruck"}
+    {id: uniqueId(), make: "Alta", model: "Redshift", colors: ["white", "lightblue", "orange"]},
+    {id: uniqueId(), make: "Tesla", model: "Model S", colors: ["white", "gray", "black", "red", "blue"]},
+    {id: uniqueId(), make: "Tesla", model: "Model 3", colors: ["white", "gray", "black", "red", "blue"]},
+    {id: uniqueId(), make: "Tesla", model: "Model X", colors: ["white", "gray", "black", "red", "lightblue"]},
+    {id: uniqueId(), make: "Tesla", model: "Model Y", colors: ["white", "gray", "black", "red", "blue"]},
+    {id: uniqueId(), make: "Tesla", model: "Roadster", colors: ["white", "gray", "black", "red", "blue", "orange"]},
+    {id: uniqueId(), make: "Tesla", model: "Cybertruck", colors: ["gray"]}
 ];
 
 export const useDealer = () => {
