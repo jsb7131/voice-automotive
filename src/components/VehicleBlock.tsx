@@ -33,7 +33,7 @@ const Container = styled.div<ContainerProps>`
     min-height: ${p => p.height}px;
     height: ${p => p.height}px;
     font-size: ${p => p.fontSize};
-    color: black;
+    color: ${p => p.bgColor === "black" ? "white" : "black"};
     background: ${p => p.bgColor};
     border: ${p => p.border};
     border-radius: 10px;
