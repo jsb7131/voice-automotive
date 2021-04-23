@@ -4,9 +4,8 @@ type SelectableElem = {id: string, selected: boolean};
 
 export const useSelection = () => {
     const [selection, setSelection] = useState<SelectableElem[]>([]);
-    const selectionControl = {
+    return {
         selection,
         setSelection
     };
-    return selectionControl;
 };
