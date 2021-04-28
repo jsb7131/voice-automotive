@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 type SelectableElem = {id: string, selected: boolean};
 
-export const useSelection = () => {
+export const useSelection = (manySelect: boolean) => {
 
     const [selection, setSelection] = useState<SelectableElem[]>([]);
 
@@ -13,7 +13,7 @@ export const useSelection = () => {
         ]);
     };
 
-    const selectElement = (id: string) => {
+    const selectOne = (id: string) => {
         const newSelection = selection.map(elem => {
             if (elem.id === id && elem.selected === false) {
                 return {...elem, selected: true};
@@ -21,7 +21,30 @@ export const useSelection = () => {
                 return {...elem, selected: false};
             };
         });
-        setSelection(newSelection);
+        return newSelection;
+    };
+
+    const selectMany = (id: string) => {
+        const newSelection = selection.map(elem => {
+            if (elem.id === id && elem.selected === false) {
+                return {...elem, selected: true};
+            } else if (elem.id === id && elem.selected === true) {
+                return {...elem, selected: false};
+            } else {
+                return elem;
+            };
+        });
+        return newSelection;
+    };
+
+    const selectElement = (id: string) => {
+        let selectedElems: SelectableElem[];
+        if (manySelect === false) {
+            selectedElems = selectOne(id);
+        } else {
+            selectedElems = selectMany(id);
+        };
+        setSelection(selectedElems);
     };
 
     return {
