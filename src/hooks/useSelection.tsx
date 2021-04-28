@@ -15,7 +15,7 @@ export const useSelection = () => {
 
     const selectElement = (id: string) => {
         const newSelection = selection.map(elem => {
-            if (elem.id === id) {
+            if (elem.id === id && elem.selected === false) {
                 return {...elem, selected: true};
             } else {
                 return {...elem, selected: false};
@@ -23,7 +23,7 @@ export const useSelection = () => {
         });
         setSelection(newSelection);
     };
-    
+
     return {
         selection,
         addElement,
