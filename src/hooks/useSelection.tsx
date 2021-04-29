@@ -1,17 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDealer } from './useDealer';
 
-type SelectableElem = {id: string, selected: boolean};
+type Colors = string[];
+type Vehicle = {make: string, model: string, colors: Colors};
+type SelectableElem = {id: string, selected: boolean, vehicle: Vehicle};
 
 export const useSelection = (manySelect: boolean) => {
 
     const [selection, setSelection] = useState<SelectableElem[]>([]);
 
-    const addElement = (id: string) => {
-        setSelection([
-            {id, selected: false},
-            ...selection
-        ]);
-    };
+    const dealer = useDealer();
+
+    useEffect(() => {
+        const selects: SelectableElem[] = [];
+        dealer.forEach(vehicle =>
+          selects.push({
+            id: vehicle.id,
+            selected: false,
+            vehicle: {make: vehicle.make, model: vehicle.model, colors: vehicle.colors}
+          })
+        );
+        setSelection(selects);
+      }, [dealer]);
 
     const selectOne = (id: string) => {
         const newSelection = selection.map(elem => {
@@ -49,7 +59,6 @@ export const useSelection = (manySelect: boolean) => {
 
     return {
         selection,
-        addElement,
         selectElement
     };
 };
