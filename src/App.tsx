@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { useLayout } from './hooks/LayoutContext';
 import { useVehicles } from './hooks/VehiclesContext';
+import { useDealer } from './hooks/useDealer';
 import { useSelection } from './hooks/useSelection';
 import { Panel } from './components/Panel';
 import { VehiclesView } from './components/VehiclesView';
@@ -11,7 +12,8 @@ export default function App() {
 
   const panel = useLayout();
   const vehicles = useVehicles();
-  const selectableVehicles = useSelection(false);
+  const dealer = useDealer();
+  const selectableVehicles = useSelection(dealer, false);
 
   const panelButtonText = panel.collapsed ? "Open" : "Close";
 
@@ -28,13 +30,13 @@ export default function App() {
             {!panel.collapsed && <h2 style={{color: "white"}}>Dealership</h2>}
             {selectableVehicles.selection.map(vehicle =>
               <VehicleStack
-                key={vehicle.id}
+                key={vehicle.element.id}
                 collapsed={panel.collapsed}
-                dealerMake={vehicle.vehicle.make}
-                dealerModel={vehicle.vehicle.model}
-                vehicleColors={vehicle.vehicle.colors}
+                dealerMake={vehicle.element.make}
+                dealerModel={vehicle.element.model}
+                vehicleColors={vehicle.element.colors}
                 selected={vehicle.selected}
-                select={() => selectableVehicles.selectElement(vehicle.id)}
+                select={() => selectableVehicles.selectElement(vehicle.element.id)}
                 addVehicle={vehicles.add}
               />
             )}

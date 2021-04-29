@@ -1,31 +1,28 @@
 import { useState, useEffect } from 'react';
-import { useDealer } from './useDealer';
 
 type Colors = string[];
-type Vehicle = {make: string, model: string, colors: Colors};
-type SelectableElem = {id: string, selected: boolean, vehicle: Vehicle};
+type Vehicle = {id: string, make: string, model: string, colors: Colors};
+type SelectableElement = {element: Vehicle, selected: boolean};
 
-export const useSelection = (manySelect: boolean) => {
+// Incoming item object must have an id property
+export const useSelection = (items: Vehicle[], manySelect: boolean) => {
 
-    const [selection, setSelection] = useState<SelectableElem[]>([]);
-
-    const dealer = useDealer();
+    const [selection, setSelection] = useState<SelectableElement[]>([]);
 
     useEffect(() => {
-        const selects: SelectableElem[] = [];
-        dealer.forEach(vehicle =>
-          selects.push({
-            id: vehicle.id,
-            selected: false,
-            vehicle: {make: vehicle.make, model: vehicle.model, colors: vehicle.colors}
-          })
+        const SelectableElements: SelectableElement[] = [];
+        items.forEach(item =>
+            SelectableElements.push({
+                element: item,
+                selected: false
+            })
         );
-        setSelection(selects);
-      }, [dealer]);
+        setSelection(SelectableElements);
+    }, [items]);
 
     const selectOne = (id: string) => {
         const newSelection = selection.map(elem => {
-            if (elem.id === id && elem.selected === false) {
+            if (elem.element.id === id && elem.selected === false) {
                 return {...elem, selected: true};
             } else {
                 return {...elem, selected: false};
@@ -36,9 +33,9 @@ export const useSelection = (manySelect: boolean) => {
 
     const selectMany = (id: string) => {
         const newSelection = selection.map(elem => {
-            if (elem.id === id && elem.selected === false) {
+            if (elem.element.id === id && elem.selected === false) {
                 return {...elem, selected: true};
-            } else if (elem.id === id && elem.selected === true) {
+            } else if (elem.element.id === id && elem.selected === true) {
                 return {...elem, selected: false};
             } else {
                 return elem;
@@ -48,7 +45,7 @@ export const useSelection = (manySelect: boolean) => {
     };
 
     const selectElement = (id: string) => {
-        let selectedElems: SelectableElem[];
+        let selectedElems: SelectableElement[];
         if (manySelect === false) {
             selectedElems = selectOne(id);
         } else {
