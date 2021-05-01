@@ -4,7 +4,7 @@ type Colors = string[];
 type Vehicle = {id: string, make: string, model: string, colors: Colors};
 type SelectableElement = {element: Vehicle, selected: boolean};
 
-// Incoming item object must have an id property
+// Incoming item object (Vehicle type in this case) must have an id property
 export const useSelection = (items: Vehicle[], manySelect: boolean) => {
 
     const [selection, setSelection] = useState<SelectableElement[]>([]);
