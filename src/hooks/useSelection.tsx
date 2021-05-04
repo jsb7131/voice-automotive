@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 
-type Colors = string[];
-type Vehicle = {id: string, make: string, model: string, colors: Colors};
-type SelectableElement = {element: Vehicle, selected: boolean};
+type ObjWithID = {id: string, [key: string]: any};
+type SelectableElement = {element: ObjWithID, selected: boolean};
 
-// Incoming item object (Vehicle type in this case) must have an id property
-export const useSelection = (items: Vehicle[], manySelect: boolean) => {
+// Incoming item object in array must have an id property (type ObjWithID defined above)
+export const useSelection = (items: ObjWithID[], manySelect: boolean) => {
 
     const [selection, setSelection] = useState<SelectableElement[]>([]);
 
