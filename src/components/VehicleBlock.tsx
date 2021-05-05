@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Chin } from './Chin';
 
 type VBProps = {
     width: number,
@@ -47,11 +48,19 @@ const Container = styled.div<ContainerProps>`
 
 export const VehicleBlock: React.FC<VBProps> = props => {
     return (
-        <Container
-            className="no-select-pointer"
-            {...props}
-        >
-            {props.dealerMake + " " + props.dealerModel}
-        </Container>
+        <div>
+            <Container
+                className="no-select-pointer"
+                {...props}
+            >
+                {props.dealerMake + " " + props.dealerModel}
+            </Container>
+            <Chin
+                width={props.width}
+                border={props.border}
+                borderRad={10}
+                percentHeight={20}
+            />
+        </div>
     );
 };
