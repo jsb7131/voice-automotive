@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 type ObjWithID = {id: string, [key: string]: any};
 type SelectableElement = {element: ObjWithID, selected: boolean};
 
-// Incoming item object in array must have an id property (type ObjWithID defined above)
+// Incoming item object in items array must have an id property (type ObjWithID defined above)
+// Only one item will be selected at a time (all others set to false) with manySelect equal to false
+// Previously selected items will remain selected upon selecting a new item with manySelect equal to true
 export const useSelection = (items: ObjWithID[], manySelect: boolean) => {
 
     const [selection, setSelection] = useState<SelectableElement[]>([]);
