@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CenteredTextBlock } from './CenteredTextBlock';
 import { Chin } from './Chin';
 
 type VBProps = {
@@ -18,49 +19,45 @@ type VBProps = {
 type ContainerProps = {
     width: number,
     height: number,
-    fontSize: string,
-    bgColor: string,
     border: string,
-    horiCenter?: boolean,
-    hoverColor: string
+    horiCenter?: boolean
 };
 
 const Container = styled.div<ContainerProps>`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
     width: ${p => p.width}px;
     min-height: ${p => p.height}px;
     height: ${p => p.height}px;
-    font-size: ${p => p.fontSize};
-    color: ${p => p.bgColor === "black" || p.bgColor === "blue" ? "white" : "black"};
-    background: ${p => p.bgColor};
     border: ${p => p.border};
     border-radius: 10px;
     margin-top: 20px;
     margin-right: ${p => p.horiCenter ? "0" : "20px"};
-    &:hover {
-        color: white;
-        background: ${p => p.hoverColor};
-    };
 `;
 
 export const VehicleBlock: React.FC<VBProps> = props => {
     return (
-        <div>
-            <Container
-                className="no-select-pointer"
-                {...props}
-            >
-                {props.dealerMake + " " + props.dealerModel}
-            </Container>
+        <Container
+            className="no-select-pointer"
+            width={props.width}
+            height={props.height}
+            border={props.border}
+            horiCenter={props.horiCenter}
+        >
+            <CenteredTextBlock
+                height={200}
+                fontSize={props.fontSize}
+                bgColor={props.bgColor}
+                borderRad={10}
+                hoverColor={props.hoverColor}
+                onClick={props.onClick}
+                dealerMake={props.dealerMake}
+                dealerModel={props.dealerModel}
+            />
             <Chin
-                width={props.width}
-                border={props.border}
                 borderRad={10}
                 percentHeight={20}
             />
-        </div>
+        </Container>
     );
 };
