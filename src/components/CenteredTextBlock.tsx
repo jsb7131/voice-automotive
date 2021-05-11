@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type CTBProps = {
-    height: number,
+    percentHeight: number,
     fontSize: string,
     bgColor: string,
     borderRad: number,
@@ -13,7 +13,7 @@ type CTBProps = {
 };
 
 type ContainerProps = {
-    height: number,
+    percentHeight: number,
     fontSize: string,
     bgColor: string,
     borderRad: number,
@@ -26,8 +26,7 @@ const Container = styled.div<ContainerProps>`
     justify-content: center;
     text-align: center;
     width: 100%;
-    min-height: ${p => p.height}px;
-    height: ${p => p.height}px;
+    height: ${p => p.percentHeight}%;
     font-size: ${p => p.fontSize};
     color: ${p => p.bgColor === "black" || p.bgColor === "blue" ? "white" : "black"};
     background: ${p => p.bgColor};
@@ -48,5 +47,3 @@ export const CenteredTextBlock: React.FC<CTBProps> = props => {
         </Container>
     );
 };
-
-// Put this on top of Chin inside the VehicleBlock Container
