@@ -6,6 +6,7 @@ type CTBProps = {
     fontSize: string,
     bgColor: string,
     borderRad: number,
+    horiCenter?: boolean,
     hoverColor: string,
     onClick: () => void,
     dealerMake: string,
@@ -17,6 +18,7 @@ type ContainerProps = {
     fontSize: string,
     bgColor: string,
     borderRad: number,
+    horiCenter?: boolean,
     hoverColor: string
 };
 
@@ -30,7 +32,10 @@ const Container = styled.div<ContainerProps>`
     font-size: ${p => p.fontSize};
     color: ${p => p.bgColor === "black" || p.bgColor === "blue" ? "white" : "black"};
     background: ${p => p.bgColor};
-    border-radius: ${p => p.borderRad}px;
+    border-top-left-radius: ${p => p.borderRad}px;
+    border-top-right-radius: ${p => p.borderRad}px;
+    border-bottom-left-radius: ${p => p.horiCenter ? p.borderRad : 0}px;
+    border-bottom-right-radius: ${p => p.horiCenter ? p.borderRad : 0}px;
     &:hover {
         color: white;
         background: ${p => p.hoverColor};

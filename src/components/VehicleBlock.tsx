@@ -49,15 +49,18 @@ export const VehicleBlock: React.FC<VBProps> = props => {
                 fontSize={props.fontSize}
                 bgColor={props.bgColor}
                 borderRad={10}
+                horiCenter={props.horiCenter}
                 hoverColor={props.hoverColor}
                 onClick={props.onClick}
                 dealerMake={props.dealerMake}
                 dealerModel={props.dealerModel}
             />
-            {!props.horiCenter && <Chin
-                borderRad={10}
-                percentHeight={20}
-            />}
+            {!props.horiCenter &&
+                <Chin
+                    borderRad={10}
+                    percentHeight={20}
+                />
+            }
         </Container>
     );
 };
