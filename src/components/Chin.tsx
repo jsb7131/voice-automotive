@@ -9,6 +9,7 @@ type ChinProps = {
 const Container = styled.div<ChinProps>`
     width: 100%;
     height: ${p => p.percentHeight}%;
+    border-top: 2px solid gray;
     border-bottom-left-radius: ${p => p.borderRad}px;
     border-bottom-right-radius: ${p => p.borderRad}px;
     background: inherit;
