@@ -9,8 +9,7 @@ type CTBProps = {
     horiCenter?: boolean,
     hoverColor: string,
     onClick: () => void,
-    dealerMake: string,
-    dealerModel: string
+    text: string
 };
 
 type ContainerProps = {
@@ -48,7 +47,7 @@ export const CenteredTextBlock: React.FC<CTBProps> = props => {
             className="no-select-pointer"
             {...props}
         >
-            {props.dealerMake + " " + props.dealerModel}
+            {props.text}
         </Container>
     );
 };
