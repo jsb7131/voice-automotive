@@ -21,4 +21,4 @@ const Container = styled.div<ContainerProps>`
     border-radius: 10px;
 `;
 
-export const BorderSelect: React.FC<BSProps> = props => <Container {...props} />
+export const BorderSelect: React.FC<BSProps> = props => <Container {...props} />;
