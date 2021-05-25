@@ -12,7 +12,7 @@ export const VehiclesView: React.FC = () => {
                 <VehicleBlock
                     key={vehicle.id}
                     width={400}
-                    height={270}
+                    height={350}
                     fontSize={"calc(10px + 2vmin)"}
                     bgColor={vehicle.color}
                     border={"1px solid black"}

@@ -45,7 +45,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
             horiCenter={props.horiCenter}
         >
             <CenteredTextBlock
-                percentHeight={!props.horiCenter ? 80 : 100}
+                percentHeight={!props.horiCenter ? 65 : 100}
                 fontSize={props.fontSize}
                 bgColor={props.bgColor}
                 borderRad={10}
@@ -57,7 +57,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
             {!props.horiCenter &&
                 <Chin
                     borderRad={10}
-                    percentHeight={20}
+                    percentHeight={35}
                     title={props.dealerMake + " " + props.dealerModel}
                 />
             }
