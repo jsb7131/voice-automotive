@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { CenteredTextBlock } from './CenteredTextBlock';
 import { Chin } from './Chin';
-import { BorderSelect } from './BorderSelect';
 
 type VBProps = {
     width: number,
     height: number,
     fontSize: string,
     bgColor: string,
-    border: string,
+    borderBoxShadow: string,
     horiCenter?: boolean,
     hoverColor: string,
     onClick: () => void,
@@ -20,7 +19,7 @@ type VBProps = {
 type ContainerProps = {
     width: number,
     height: number,
-    border: string,
+    borderBoxShadow: string,
     horiCenter?: boolean
 };
 
@@ -30,10 +29,11 @@ const Container = styled.div<ContainerProps>`
     width: ${p => p.width}px;
     min-height: ${p => p.height}px;
     height: ${p => p.height}px;
-    border: ${p => p.border};
+    box-shadow: ${p => p.borderBoxShadow};
     border-radius: 10px;
     margin-top: 20px;
     margin-right: ${p => p.horiCenter ? "0" : "20px"};
+    ${p => !p.horiCenter ? "&:hover { box-shadow: 0 0 0 10px lightblue }" : ""}
 `;
 
 export const VehicleBlock: React.FC<VBProps> = props => {
@@ -42,7 +42,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
             className="no-select-pointer"
             width={props.width}
             height={props.height}
-            border={props.border}
+            borderBoxShadow={props.borderBoxShadow}
             horiCenter={props.horiCenter}
         >
             <CenteredTextBlock
@@ -60,13 +60,6 @@ export const VehicleBlock: React.FC<VBProps> = props => {
                     borderRad={10}
                     percentHeight={35}
                     title={props.dealerMake + " " + props.dealerModel}
-                />
-            }
-            {props.horiCenter &&
-                <BorderSelect
-                    width={props.width}
-                    height={props.height}
-                    border={"4px solid lightblue"}
                 />
             }
         </Container>
