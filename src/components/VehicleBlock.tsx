@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { CenteredTextBlock } from './CenteredTextBlock';
 import { Chin } from './Chin';
+import { BorderSelect } from './BorderSelect';
 
 type VBProps = {
     width: number,
@@ -59,6 +60,13 @@ export const VehicleBlock: React.FC<VBProps> = props => {
                     borderRad={10}
                     percentHeight={35}
                     title={props.dealerMake + " " + props.dealerModel}
+                />
+            }
+            {props.horiCenter &&
+                <BorderSelect
+                    width={props.width}
+                    height={props.height}
+                    border={"4px solid lightblue"}
                 />
             }
         </Container>
