@@ -18,6 +18,7 @@ export const VehicleStack: React.FC<VSProps> = props => {
 
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
+    const borderThickness = props.collapsed ? 6 : 12;
 
     return (
         <>
@@ -26,7 +27,7 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 height={pxSquare}
                 fontSize={blockFontSize}
                 bgColor={"white"}
-                borderBoxShadow={props.selected ? "0 0 0 4px lightblue" : "none"}
+                borderBoxShadow={props.selected ? `0 0 0 ${borderThickness}px lightblue` : "none"}
                 horiCenter
                 hoverColor={"green"}
                 onClick={props.select}
@@ -34,7 +35,7 @@ export const VehicleStack: React.FC<VSProps> = props => {
                 dealerModel={props.dealerModel}
             />
             {props.selected &&
-                <div style={{width: `${pxSquare}px`, marginTop: "4px"}}>
+                <div style={{width: `${pxSquare}px`, marginTop: `${borderThickness}px`}}>
                     {props.vehicleColors.map(vehicleColor =>
                         <div
                             key={uniqueId()}
