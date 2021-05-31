@@ -39,7 +39,6 @@ const Container = styled.div<ContainerProps>`
 export const VehicleBlock: React.FC<VBProps> = props => {
     return (
         <Container
-            className="no-select-pointer"
             width={props.width}
             height={props.height}
             borderBoxShadow={props.borderBoxShadow}
@@ -52,7 +51,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
                 borderRad={10}
                 horiCenter={props.horiCenter}
                 hoverColor={props.hoverColor}
-                onClick={props.onClick}
+                onClick={props.horiCenter ? props.onClick : () => {}}
                 text={props.dealerMake + " " + props.dealerModel}
             />
             {!props.horiCenter &&
@@ -60,6 +59,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
                     borderRad={10}
                     percentHeight={35}
                     title={props.dealerMake + " " + props.dealerModel}
+                    onClick={props.onClick}
                 />
             }
         </Container>

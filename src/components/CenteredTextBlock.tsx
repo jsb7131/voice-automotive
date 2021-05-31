@@ -8,7 +8,7 @@ type CTBProps = {
     borderRad: number,
     horiCenter?: boolean,
     hoverColor: string,
-    onClick: () => void,
+    onClick?: () => void,
     text: string
 };
 
@@ -44,7 +44,7 @@ const Container = styled.div<ContainerProps>`
 export const CenteredTextBlock: React.FC<CTBProps> = props => {
     return (
         <Container
-            className="no-select-pointer"
+            className={props.horiCenter ? "no-select-pointer" : ""}
             {...props}
         >
             {props.text}

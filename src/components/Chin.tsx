@@ -4,11 +4,19 @@ import styled from 'styled-components';
 type ChinProps = {
     borderRad: number,
     percentHeight: number,
-    title: string
+    title: string,
+    onClick?: () => void
 };
 
-const Container = styled.div<ChinProps>`
+type ContainerProps = {
+    borderRad: number,
+    percentHeight: number
+};
+
+const Container = styled.div<ContainerProps>`
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: ${p => p.percentHeight}%;
@@ -25,9 +33,24 @@ const Container = styled.div<ChinProps>`
 export const Chin: React.FC<ChinProps> = props => {
     return (
         <Container
-            {...props}
+            borderRad={props.borderRad}
+            percentHeight={props.percentHeight}
         >
-            <div style={{marginLeft: "20px"}}>{props.title}</div>
+            <div
+                style={{marginLeft: "20px"}}
+            >
+                {props.title}
+            </div>
+            <div
+                onClick={props.onClick}
+                style={{
+                    marginRight: "20px",
+                    fontSize: "14px",
+                    cursor: "pointer"
+                }}
+            >
+                Remove from Collection
+            </div>
         </Container>
     );
 };
