@@ -18,7 +18,7 @@ export const VehicleStack: React.FC<VSProps> = props => {
 
     const pxSquare = props.collapsed ? 100 : 150;
     const blockFontSize = props.collapsed ? "calc(5px + 2vmin)" : "calc(10px + 2vmin)";
-    const borderThickness = props.collapsed ? 6 : 12;
+    const borderThickness = props.collapsed ? 6 : 7;
 
     return (
         <>

@@ -34,7 +34,7 @@ const Container = styled.div<ContainerProps>`
     border-radius: 10px;
     margin-top: 20px;
     margin-right: ${p => p.horiCenter ? "0" : "20px"};
-    ${p => !p.horiCenter ? "&:hover { box-shadow: 0 0 0 10px lightblue; };" : ""}
+    ${p => !p.horiCenter ? "&:hover { box-shadow: 0 0 0 7px lightblue; };" : ""}
 `;
 
 export const VehicleBlock: React.FC<VBProps> = props => {

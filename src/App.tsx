@@ -20,9 +20,17 @@ export default function App() {
   return (
     <div className="App">
         <header className="App-header">
-          <Panel isCollapsed={panel.collapsed} closedWidth={150} openWidth={300}>
+          <Panel
+            isCollapsed={panel.collapsed}
+            closedWidth={150}
+            openWidth={300}
+          >
             <button
-              style={{fontSize: `${panel.collapsed ? "10px" : "14px"}`, marginTop: "10px", cursor: "pointer"}}
+              style={{
+                fontSize: `${panel.collapsed ? "10px" : "14px"}`,
+                marginTop: "10px",
+                cursor: "pointer"
+              }}
               onClick={() => panel.collapse(panel.collapsed)}
             >
               {panelButtonText}
@@ -44,8 +52,20 @@ export default function App() {
           <div style={{overflow: "auto"}}>
             <div id="garage-top-bar">
               <div style={{marginRight: "80px"}}>Collection</div>
-              {vehicles.current.length > 0 && <div className="top-nav-btn no-select-pointer" onClick={vehicles.clear}>Clear</div>}
-              <div className="top-nav-btn no-select-pointer" onClick={vehicles.reset}>Reset</div>
+              {vehicles.current.length > 0 &&
+                <div
+                  className="top-nav-btn no-select-pointer"
+                  onClick={vehicles.clear}
+                >
+                  Clear
+                </div>
+              }
+              <div
+                className="top-nav-btn no-select-pointer"
+                onClick={vehicles.reset}
+              >
+                Reset
+              </div>
             </div>
             <VehiclesView/>
           </div>
