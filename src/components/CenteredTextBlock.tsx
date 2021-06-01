@@ -35,10 +35,14 @@ const Container = styled.div<ContainerProps>`
     border-top-right-radius: ${p => p.borderRad}px;
     border-bottom-left-radius: ${p => p.horiCenter ? p.borderRad : 0}px;
     border-bottom-right-radius: ${p => p.horiCenter ? p.borderRad : 0}px;
-    &:hover {
-        color: white;
-        background: ${p => p.hoverColor};
-    };
+    ${p => p.horiCenter ?
+        `&:hover {
+            color: white;
+            background: ${p.hoverColor};
+        };`
+        :
+        ""
+    }
 `;
 
 export const CenteredTextBlock: React.FC<CTBProps> = props => {

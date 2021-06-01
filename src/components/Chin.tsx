@@ -5,6 +5,7 @@ type ChinProps = {
     borderRad: number,
     percentHeight: number,
     title: string,
+    hovered?: boolean,
     onClick?: () => void
 };
 
@@ -25,9 +26,6 @@ const Container = styled.div<ContainerProps>`
     border-bottom-right-radius: ${p => p.borderRad}px;
     color: gray;
     background: inherit;
-    &:hover {
-        background: peru;
-    };
 `;
 
 export const Chin: React.FC<ChinProps> = props => {
@@ -41,16 +39,19 @@ export const Chin: React.FC<ChinProps> = props => {
             >
                 {props.title}
             </div>
-            <div
-                onClick={props.onClick}
-                style={{
-                    marginRight: "20px",
-                    fontSize: "14px",
-                    cursor: "pointer"
-                }}
-            >
-                Remove from Collection
-            </div>
+            {props.hovered &&
+                <div
+                    className="remove-button"
+                    onClick={props.onClick}
+                    style={{
+                        marginRight: "20px",
+                        fontSize: "14px",
+                        cursor: "pointer"
+                    }}
+                >
+                    Remove from Collection
+                </div>
+            }
         </Container>
     );
 };

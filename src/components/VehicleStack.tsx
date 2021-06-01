@@ -39,8 +39,8 @@ export const VehicleStack: React.FC<VSProps> = props => {
                     {props.vehicleColors.map(vehicleColor =>
                         <div
                             key={uniqueId()}
-                            className="no-select-pointer"
-                            style={{width: "100%", height: "20px", backgroundColor: vehicleColor}}
+                            className="no-select-pointer color-select"
+                            style={{width: "100%", height: "20px", backgroundColor: vehicleColor, borderRadius: "7px"}}
                             onClick={() => props.addVehicle({make: props.dealerMake, model: props.dealerModel, color: vehicleColor})}
                         >
                         </div>

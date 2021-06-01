@@ -16,9 +16,6 @@ const Container = styled.div<PanelProps>`
     bottom: 0;
     min-width: ${p => p.isCollapsed ? p.closedWidth : p.openWidth}px;
     background: black;
-    &:hover {
-        background: darkblue;
-    };
     overflow: auto;
     padding-bottom: 20px;
 `;

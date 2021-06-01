@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHover } from '../hooks/useHover';
 import { CenteredTextBlock } from './CenteredTextBlock';
 import { Chin } from './Chin';
 
@@ -33,12 +34,14 @@ const Container = styled.div<ContainerProps>`
     border-radius: 10px;
     margin-top: 20px;
     margin-right: ${p => p.horiCenter ? "0" : "20px"};
-    ${p => !p.horiCenter ? "&:hover { box-shadow: 0 0 0 10px lightblue }" : ""}
+    ${p => !p.horiCenter ? "&:hover { box-shadow: 0 0 0 10px lightblue; };" : ""}
 `;
 
 export const VehicleBlock: React.FC<VBProps> = props => {
+    const hover = useHover();
     return (
         <Container
+            ref={hover.targetRef}
             width={props.width}
             height={props.height}
             borderBoxShadow={props.borderBoxShadow}
@@ -59,6 +62,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
                     borderRad={10}
                     percentHeight={35}
                     title={props.dealerMake + " " + props.dealerModel}
+                    hovered={hover.hovered}
                     onClick={props.onClick}
                 />
             }
