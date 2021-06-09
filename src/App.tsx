@@ -26,6 +26,7 @@ export default function App() {
             openWidth={300}
           >
             <button
+              className="btn"
               style={{
                 fontSize: `${panel.collapsed ? "10px" : "14px"}`,
                 marginTop: "10px",

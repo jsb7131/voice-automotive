@@ -47,3 +47,9 @@
 .remove-button:hover {
   color: darkblue;
 }
+
+.btn {
+  background: inherit;
+  color: white;
+  outline: none;
+}
