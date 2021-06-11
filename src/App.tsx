@@ -25,17 +25,19 @@ export default function App() {
             closedWidth={150}
             openWidth={300}
           >
-            <button
-              className="btn"
-              style={{
-                fontSize: `${panel.collapsed ? "10px" : "14px"}`,
-                marginTop: "10px",
-                cursor: "pointer"
-              }}
-              onClick={() => panel.collapse(panel.collapsed)}
-            >
-              {panelButtonText}
-            </button>
+            {dealer.length > 0 &&
+              <button
+                className="btn"
+                style={{
+                  fontSize: `${panel.collapsed ? "10px" : "14px"}`,
+                  marginTop: "10px",
+                  cursor: "pointer"
+                }}
+                onClick={() => panel.collapse(panel.collapsed)}
+              >
+                {panelButtonText}
+              </button>
+            }
             {!panel.collapsed && <h2 style={{color: "white"}}>Dealership</h2>}
             {selectableVehicles.selection.map(vehicle =>
               <VehicleStack
@@ -61,12 +63,14 @@ export default function App() {
                   Clear
                 </div>
               }
-              <div
-                className="top-nav-btn no-select-pointer"
-                onClick={vehicles.reset}
-              >
-                Reset
-              </div>
+              {dealer.length > 0 &&
+                <div
+                  className="top-nav-btn no-select-pointer"
+                  onClick={vehicles.reset}
+                >
+                  Reset
+                </div>
+              }
             </div>
             <VehiclesView/>
           </div>
