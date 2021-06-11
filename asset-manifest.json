@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/voice-automotive/static/css/main.3a5d422e.chunk.css",
-    "main.js": "/voice-automotive/static/js/main.4ac5f7cd.chunk.js",
-    "main.js.map": "/voice-automotive/static/js/main.4ac5f7cd.chunk.js.map",
+    "main.css": "/voice-automotive/static/css/main.692f6dd4.chunk.css",
+    "main.js": "/voice-automotive/static/js/main.a3d39cab.chunk.js",
+    "main.js.map": "/voice-automotive/static/js/main.a3d39cab.chunk.js.map",
     "runtime-main.js": "/voice-automotive/static/js/runtime-main.3373b4eb.js",
     "runtime-main.js.map": "/voice-automotive/static/js/runtime-main.3373b4eb.js.map",
     "static/js/2.1b25a961.chunk.js": "/voice-automotive/static/js/2.1b25a961.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.2a55fad5.chunk.js": "/voice-automotive/static/js/3.2a55fad5.chunk.js",
     "static/js/3.2a55fad5.chunk.js.map": "/voice-automotive/static/js/3.2a55fad5.chunk.js.map",
     "index.html": "/voice-automotive/index.html",
-    "static/css/main.3a5d422e.chunk.css.map": "/voice-automotive/static/css/main.3a5d422e.chunk.css.map",
+    "static/css/main.692f6dd4.chunk.css.map": "/voice-automotive/static/css/main.692f6dd4.chunk.css.map",
     "static/js/2.1b25a961.chunk.js.LICENSE.txt": "/voice-automotive/static/js/2.1b25a961.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3373b4eb.js",
     "static/js/2.1b25a961.chunk.js",
-    "static/css/main.3a5d422e.chunk.css",
-    "static/js/main.4ac5f7cd.chunk.js"
+    "static/css/main.692f6dd4.chunk.css",
+    "static/js/main.a3d39cab.chunk.js"
   ]
 }
