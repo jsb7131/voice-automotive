@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
@@ -7,7 +7,28 @@ const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId);
 SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition);
 
 const Dictaphone = () => {
-  const { transcript, listening, resetTranscript } = useSpeechRecognition();
+  const [message, setMessage] = useState('');
+  const commands = [
+    {
+      command: '* is my name',
+      callback: (name) => setMessage(`Hi ${name}!`),
+      matchInterim: true
+    },
+    {
+      command: 'My top sports are * and *',
+      callback: (sport1, sport2) => setMessage(`#1: ${sport1}, #2: ${sport2}`)
+    },
+    {
+      command: 'Goodbye',
+      callback: () => setMessage('So long!'),
+      matchInterim: true
+    },
+    {
+      command: 'Pass the salt (please)',
+      callback: () => setMessage('My pleasure')
+    }
+  ];
+  const { transcript, listening, resetTranscript } = useSpeechRecognition({ commands });
   const startListening = () => SpeechRecognition.startListening({ continuous: true });
 
   return (
@@ -17,6 +38,7 @@ const Dictaphone = () => {
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
       <button onClick={resetTranscript}>Reset</button>
       <p>{transcript}</p>
+      <p style={{color: "green"}}>{message}</p>
     </div>
   );
 };
