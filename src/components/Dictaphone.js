@@ -6,7 +6,7 @@ const appId = 'cb4fed69-c0d6-45f3-9218-bd2f3e381daf';
 const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId);
 SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition);
 
-const Dictaphone = () => {
+const Dictaphone = ({ panelTrigger, collapsed }) => {
   const [message, setMessage] = useState('');
   const commands = [
     {
@@ -26,6 +26,14 @@ const Dictaphone = () => {
     {
       command: 'Pass the salt (please)',
       callback: () => setMessage('My pleasure')
+    },
+    {
+      command: 'open',
+      callback: collapsed ? () => panelTrigger(false) : () => {}
+    },
+    {
+      command: 'close',
+      callback: !collapsed ? () => panelTrigger(true) : () => {}
     }
   ];
   const { transcript, listening, resetTranscript } = useSpeechRecognition({ commands });

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useVehicles } from '../hooks/VehiclesContext';
 import { VehicleBlock } from './VehicleBlock';
-import Dictaphone from './Dictaphone';
 
 export const VehiclesView: React.FC = () => {
 
@@ -23,7 +22,6 @@ export const VehiclesView: React.FC = () => {
                     dealerModel={vehicle.model}
                 />
             )}
-            <Dictaphone/>
         </div>
     );
 };

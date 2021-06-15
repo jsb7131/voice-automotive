@@ -2,11 +2,13 @@ import React, { useContext, useState } from 'react';
 
 type Layout = {
     collapsed: boolean,
+    setCollapsed: (value: boolean) => void,
     collapse: (value: boolean) => void
 };
 
 const LayoutContext = React.createContext<Layout>({
     collapsed: true,
+    setCollapsed: () => {},
     collapse: () => {}
 });
 
@@ -19,8 +21,9 @@ export const LayoutProvider: React.FC = ({ children }) => {
     const collapse = (value: boolean) => setCollapsed(!value);
 
     const LayoutControl = {
-        collapsed: collapsed,
-        collapse: collapse
+        collapsed,
+        setCollapsed,
+        collapse
     };
 
     return (
