@@ -29,14 +29,16 @@ const Dictaphone = ({ panelTrigger, collapsed }) => {
     },
     {
       command: 'open',
-      callback: collapsed ? () => panelTrigger(false) : () => {}
+      callback: collapsed ? ({ resetTranscript }) => { panelTrigger(false); resetTranscript(); } : ({ resetTranscript }) => resetTranscript(),
+      matchInterim: true
     },
     {
       command: 'close',
-      callback: !collapsed ? () => panelTrigger(true) : () => {}
+      callback: !collapsed ? ({ resetTranscript }) => { panelTrigger(true); resetTranscript(); } : ({ resetTranscript }) => resetTranscript(),
+      matchInterim: true
     }
   ];
-  const { transcript, listening, resetTranscript } = useSpeechRecognition({ commands });
+  const { listening } = useSpeechRecognition({ commands });
   const startListening = () => SpeechRecognition.startListening({ continuous: true });
 
   return (
@@ -44,8 +46,6 @@ const Dictaphone = ({ panelTrigger, collapsed }) => {
       <p>Microphone: {listening ? 'on' : 'off'}</p>
       <button onClick={startListening}>Start</button>
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button>
-      <p>{transcript}</p>
       <p style={{color: "green"}}>{message}</p>
     </div>
   );
