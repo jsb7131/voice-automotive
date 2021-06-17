@@ -28,11 +28,10 @@ export default function App() {
           >
             {dealer.length > 0 &&
               <button
-                className="btn"
+                className="dark-btn"
                 style={{
                   fontSize: `${panel.collapsed ? "10px" : "14px"}`,
-                  marginTop: "10px",
-                  cursor: "pointer"
+                  marginTop: "10px"
                 }}
                 onClick={() => panel.collapse(panel.collapsed)}
               >

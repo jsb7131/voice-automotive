@@ -42,10 +42,10 @@ const Dictaphone = ({ panelTrigger, collapsed }) => {
   const startListening = () => SpeechRecognition.startListening({ continuous: true });
 
   return (
-    <div>
+    <div style={{paddingLeft: "20px"}}>
       <p>Microphone: {listening ? 'on' : 'off'}</p>
-      <button onClick={startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
+      <button className="light-btn" onClick={startListening}>Start</button>
+      <button className="light-btn" onClick={SpeechRecognition.stopListening}>Stop</button>
       <p style={{color: "green"}}>{message}</p>
     </div>
   );
