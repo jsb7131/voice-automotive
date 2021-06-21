@@ -7,7 +7,7 @@ import { useSelection } from './hooks/useSelection';
 import { Panel } from './components/Panel';
 import { VehiclesView } from './components/VehiclesView';
 import { VehicleStack } from './components/VehicleStack';
-import Dictaphone from './components/Dictaphone';
+// import Dictaphone from './components/Dictaphone';
 
 export default function App() {
 
@@ -73,10 +73,10 @@ export default function App() {
               }
             </div>
             <VehiclesView/>
-            <Dictaphone
+            {/* <Dictaphone
               collapsed={panel.collapsed}
               panelTrigger={panel.setCollapsed}
-            />
+            /> */}
           </div>
         </header>
     </div>
