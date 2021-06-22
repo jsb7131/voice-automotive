@@ -26,10 +26,10 @@ export const useVoiceVehicles = (vehicles, selectVehicle, removeVehicle, clearVe
           command: 'next',
           callback: ({ resetTranscript }) => {
             selectVehicle(vehicles.selection[index].element.id);
-            if (index < vehicles.length - 1) {
+            if (index < vehicles.selection.length - 1) {
               selectVehicle(vehicles.selection[index+1].element.id);
+              index++;
             };
-            index++;
             resetTranscript();
           },
           matchInterim: true
