@@ -36,7 +36,7 @@ export const VehiclesView: React.FC = () => {
             </div>
             <div style={{paddingLeft: "20px", paddingBottom: "20px"}}>
                 <p>Microphone: {voiceRemove.listening ? 'on' : 'off'}</p>
-                <button className="light-btn" onClick={voiceRemove.startListening}>Start</button>
+                <button className="light-btn" style={{marginRight: "10px"}} onClick={voiceRemove.startListening}>Start</button>
                 <button className="light-btn" onClick={() => voiceRemove.stopListening()}>Stop</button>
             </div>
         </>
