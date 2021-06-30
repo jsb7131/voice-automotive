@@ -27,6 +27,7 @@ export const VehiclesView: React.FC = () => {
                         fontSize={"calc(10px + 2vmin)"}
                         bgColor={vehicle.element.color}
                         borderBoxShadow={vehicle.selected ? "0 0 0 7px lightblue" : "0 0 0 1px gray"}
+                        selected={vehicle.selected}
                         hoverColor={"darkblue"}
                         onClick={() => vehicles.remove(vehicle.element.id)}
                         dealerMake={vehicle.element.make}

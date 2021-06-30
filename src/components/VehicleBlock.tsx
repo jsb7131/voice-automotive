@@ -10,6 +10,7 @@ type VBProps = {
     fontSize: string,
     bgColor: string,
     borderBoxShadow: string,
+    selected?: boolean,
     horiCenter?: boolean,
     hoverColor: string,
     onClick: () => void,
@@ -62,7 +63,7 @@ export const VehicleBlock: React.FC<VBProps> = props => {
                     borderRad={10}
                     percentHeight={35}
                     title={props.dealerMake + " " + props.dealerModel}
-                    hovered={hover.hovered}
+                    hovered={hover.hovered || props.selected}
                     onClick={props.onClick}
                 />
             }
