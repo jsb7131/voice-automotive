@@ -6,13 +6,14 @@ type Vehicle = {id: string, make: string, model: string, colors: Colors};
 
 // Seeded vehicles
 const automobiles: Vehicle[] = [
-    {id: uniqueId(), make: "Alta", model: "Redshift", colors: ["white", "lightblue", "orange"]},
     {id: uniqueId(), make: "Tesla", model: "Model S", colors: ["white", "gray", "black", "red", "blue"]},
     {id: uniqueId(), make: "Tesla", model: "Model 3", colors: ["white", "gray", "black", "red", "blue"]},
     {id: uniqueId(), make: "Tesla", model: "Model X", colors: ["white", "gray", "black", "red", "lightblue"]},
     {id: uniqueId(), make: "Tesla", model: "Model Y", colors: ["white", "gray", "black", "red", "blue"]},
     {id: uniqueId(), make: "Tesla", model: "Roadster", colors: ["white", "gray", "black", "red", "blue", "orange"]},
-    {id: uniqueId(), make: "Tesla", model: "Cybertruck", colors: ["gray"]}
+    {id: uniqueId(), make: "Tesla", model: "Cybertruck", colors: ["gray"]},
+    {id: uniqueId(), make: "KTM", model: "Freeride", colors: ["white", "lightblue", "orange"]},
+    {id: uniqueId(), make: "Alta", model: "Redshift", colors: ["white", "red"]}
 ];
 
 export const useDealer = () => {
