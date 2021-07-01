@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/voice-automotive/static/css/main.692f6dd4.chunk.css",
-    "main.js": "/voice-automotive/static/js/main.a3d39cab.chunk.js",
-    "main.js.map": "/voice-automotive/static/js/main.a3d39cab.chunk.js.map",
-    "runtime-main.js": "/voice-automotive/static/js/runtime-main.3373b4eb.js",
-    "runtime-main.js.map": "/voice-automotive/static/js/runtime-main.3373b4eb.js.map",
-    "static/js/2.1b25a961.chunk.js": "/voice-automotive/static/js/2.1b25a961.chunk.js",
-    "static/js/2.1b25a961.chunk.js.map": "/voice-automotive/static/js/2.1b25a961.chunk.js.map",
-    "static/js/3.2a55fad5.chunk.js": "/voice-automotive/static/js/3.2a55fad5.chunk.js",
-    "static/js/3.2a55fad5.chunk.js.map": "/voice-automotive/static/js/3.2a55fad5.chunk.js.map",
+    "main.css": "/voice-automotive/static/css/main.1db0e3d5.chunk.css",
+    "main.js": "/voice-automotive/static/js/main.e62c9aef.chunk.js",
+    "main.js.map": "/voice-automotive/static/js/main.e62c9aef.chunk.js.map",
+    "runtime-main.js": "/voice-automotive/static/js/runtime-main.52e4ced8.js",
+    "runtime-main.js.map": "/voice-automotive/static/js/runtime-main.52e4ced8.js.map",
+    "static/js/2.dee273a9.chunk.js": "/voice-automotive/static/js/2.dee273a9.chunk.js",
+    "static/js/2.dee273a9.chunk.js.map": "/voice-automotive/static/js/2.dee273a9.chunk.js.map",
+    "static/js/3.6c8f2fb2.chunk.js": "/voice-automotive/static/js/3.6c8f2fb2.chunk.js",
+    "static/js/3.6c8f2fb2.chunk.js.map": "/voice-automotive/static/js/3.6c8f2fb2.chunk.js.map",
     "index.html": "/voice-automotive/index.html",
-    "static/css/main.692f6dd4.chunk.css.map": "/voice-automotive/static/css/main.692f6dd4.chunk.css.map",
-    "static/js/2.1b25a961.chunk.js.LICENSE.txt": "/voice-automotive/static/js/2.1b25a961.chunk.js.LICENSE.txt"
+    "static/css/main.1db0e3d5.chunk.css.map": "/voice-automotive/static/css/main.1db0e3d5.chunk.css.map",
+    "static/js/2.dee273a9.chunk.js.LICENSE.txt": "/voice-automotive/static/js/2.dee273a9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3373b4eb.js",
-    "static/js/2.1b25a961.chunk.js",
-    "static/css/main.692f6dd4.chunk.css",
-    "static/js/main.a3d39cab.chunk.js"
+    "static/js/runtime-main.52e4ced8.js",
+    "static/js/2.dee273a9.chunk.js",
+    "static/css/main.1db0e3d5.chunk.css",
+    "static/js/main.e62c9aef.chunk.js"
   ]
 }
