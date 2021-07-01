@@ -25,7 +25,7 @@ const Container = styled.div<ContainerProps>`
     border-bottom-left-radius: ${p => p.borderRad}px;
     border-bottom-right-radius: ${p => p.borderRad}px;
     color: gray;
-    background: inherit;
+    background: white;
 `;
 
 export const Chin: React.FC<ChinProps> = props => {
