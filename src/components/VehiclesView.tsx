@@ -37,7 +37,7 @@ export const VehiclesView: React.FC = () => {
             </div>
             <div style={{paddingLeft: "20px", paddingRight: "20px", paddingBottom: "20px"}}>
                 <p>Microphone: {voiceRemove.listening ? 'on' : 'off'}</p>
-                <button className="light-btn" style={{marginRight: "10px"}} onClick={voiceRemove.startListening}>Start</button>
+                <button className="light-btn" onClick={voiceRemove.startListening}>Start</button>
                 <p>Press the Start button and always begin by saying "Select". You can then say these commands: "Next", "Remove", "Clear", and "Reset".</p>
             </div>
         </>
