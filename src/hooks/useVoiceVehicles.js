@@ -13,6 +13,7 @@ export const useVoiceVehicles = (vehicles, selectVehicle, removeVehicle, clearVe
 
   let vehiclesLength = vehicles.selection.length;
 
+  // Reset these values when the length of the array changes e.g. adding, removing, clearing, resetting
   useEffect(() => {
     index = 0;
     initialSelect = false;
@@ -22,6 +23,7 @@ export const useVoiceVehicles = (vehicles, selectVehicle, removeVehicle, clearVe
     {
       command: 'select',
       callback: ({ resetTranscript }) => {
+        // Select, don't deselect
         if (!initialSelect && vehicles.selection.length > 0) {
           selectVehicle(vehicles.selection[0].element.id);
           index = 0;
@@ -35,7 +37,9 @@ export const useVoiceVehicles = (vehicles, selectVehicle, removeVehicle, clearVe
       command: 'next',
       callback: ({ resetTranscript }) => {
         if (initialSelect && index < vehicles.selection.length - 1) {
+          // Deselect current selected
           selectVehicle(vehicles.selection[index].element.id);
+          // Select next
           selectVehicle(vehicles.selection[index+1].element.id);
           index++;
         };
@@ -47,10 +51,9 @@ export const useVoiceVehicles = (vehicles, selectVehicle, removeVehicle, clearVe
       command: 'remove',
       callback: ({ resetTranscript }) => {
         if (vehicles.selection.length > 0) {
+          // Check if array is empty to prevent vehicles.selection[index].selected from throwing error
           if (vehicles.selection[index].selected) {
             removeVehicle(vehicles.selection[index].element.id);
-            index = 0;
-            initialSelect = false;
           };
         };
         resetTranscript();
@@ -61,8 +64,6 @@ export const useVoiceVehicles = (vehicles, selectVehicle, removeVehicle, clearVe
       command: 'clear',
       callback: ({ resetTranscript }) => {
         clearVehicles();
-        index = 0;
-        initialSelect = false;
         resetTranscript();
       },
       matchInterim: true
@@ -71,11 +72,13 @@ export const useVoiceVehicles = (vehicles, selectVehicle, removeVehicle, clearVe
       command: 'reset',
       callback: ({ resetTranscript }) => {
         if (initialSelect) {
+          // resetVehicles() doesn't call setState in VehiclesContext if current vehicles are same as initial vehicles, for optimization
+          // In that case there is no re-render, so call selectVehicle to deselect something that may be selected, to emulate full reset
           selectVehicle(vehicles.selection[index].element.id);
+          index = 0;
+          initialSelect = false;
         };
         resetVehicles();
-        index = 0;
-        initialSelect = false;
         resetTranscript();
       },
       matchInterim: true
