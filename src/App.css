@@ -65,3 +65,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.light-btn:hover {
+  background: lightskyblue;
+}
