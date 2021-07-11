@@ -18,6 +18,7 @@ export default function App() {
   return (
     <div className="App">
         <header className="App-header">
+          {/* Side panel */}
           <Panel
             isCollapsed={panel.collapsed}
             closedWidth={150}
@@ -36,6 +37,7 @@ export default function App() {
               </button>
             }
             {!panel.collapsed && <h2 style={{color: "white"}}>Dealership</h2>}
+            {/* Dealership vehicles */}
             {selectableVehicles.selection.map(vehicle =>
               <VehicleStack
                 key={vehicle.element.id}
@@ -49,6 +51,7 @@ export default function App() {
               />
             )}
           </Panel>
+          {/* Top bar */}
           <div style={{overflow: "auto"}}>
             <div id="garage-top-bar">
               <div style={{marginRight: "80px"}}>Collection</div>
@@ -69,6 +72,7 @@ export default function App() {
                 </div>
               }
             </div>
+            {/* Vehicles collection */}
             <VehiclesView/>
           </div>
         </header>
