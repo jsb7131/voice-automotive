@@ -15,8 +15,6 @@ export default function App() {
   const dealer = useDealer();
   const selectableVehicles = useSelection(dealer, false);
 
-  const panelButtonText = panel.collapsed ? "Open" : "Close";
-
   return (
     <div className="App">
         <header className="App-header">
@@ -34,7 +32,7 @@ export default function App() {
                 }}
                 onClick={() => panel.collapse(panel.collapsed)}
               >
-                {panelButtonText}
+                {panel.collapsed ? "Open" : "Close"}
               </button>
             }
             {!panel.collapsed && <h2 style={{color: "white"}}>Dealership</h2>}

@@ -39,7 +39,9 @@ const Container = styled.div<ContainerProps>`
 `;
 
 export const VehicleBlock: React.FC<VBProps> = props => {
+
     const hover = useHover();
+    
     return (
         <Container
             ref={hover.targetRef}
