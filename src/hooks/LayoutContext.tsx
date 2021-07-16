@@ -14,6 +14,9 @@ const LayoutContext = React.createContext<Layout>({
 
 export const useLayout = () => useContext(LayoutContext);
 
+// Controls the layout of the dashboard
+// (currently the opening and closing of the left side panel)
+
 export const LayoutProvider: React.FC = ({ children }) => {
 
     const [collapsed, setCollapsed] = useState(true);
