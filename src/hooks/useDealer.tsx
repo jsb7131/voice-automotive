@@ -4,7 +4,7 @@ import { uniqueId } from 'lodash';
 type Colors = string[];
 type Vehicle = {id: string, make: string, model: string, colors: Colors};
 
-// Seeded vehicles
+// Seeded vehicles for Dealership left side panel
 const automobiles: Vehicle[] = [
     {id: uniqueId(), make: "Tesla", model: "Model S", colors: ["white", "gray", "black", "red", "blue"]},
     {id: uniqueId(), make: "Tesla", model: "Model 3", colors: ["white", "gray", "black", "red", "blue"]},
